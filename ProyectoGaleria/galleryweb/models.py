@@ -13,7 +13,7 @@ class TipoMultimedia(models.Model):
     tipo = models.CharField(max_length=200)
 
     def __str__(self):
-        return 'Tipo multimedia: ' + self.tipo
+        return self.tipo
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=200)
@@ -24,7 +24,8 @@ class Categoria(models.Model):
 class Multimedia(models.Model):
     titulo = models.CharField(max_length=200)
     url = models.CharField(max_length=1000)
-    archivoImagen = models.ImageField(upload_to='files', blank=True, null=True)
+    info = models.CharField(max_length=1000)
+    archivo = models.FileField(upload_to='files', blank=True, null=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     tipo = models.ForeignKey(TipoMultimedia, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
@@ -39,10 +40,6 @@ class Clip(models.Model):
 
     def __str__(self):
         return 'Clip: ' + self.nombre
-
-
-
-
 
 #Borrar ....
 
@@ -69,4 +66,3 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-
