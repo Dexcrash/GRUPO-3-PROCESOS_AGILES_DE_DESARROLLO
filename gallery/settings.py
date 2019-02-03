@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -84,7 +85,18 @@ DATABASES = {
         'PORT': '',
     }
 }
+'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd986njveh7940j',
+        'USER': 'evbmugxedwekay',
+        'PASSWORD': '9b5424b7896120589584784bffd23569ccfc16c40e591846a25ce4c0866e3f8f',
+        'HOST': 'ec2-23-21-244-254.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
