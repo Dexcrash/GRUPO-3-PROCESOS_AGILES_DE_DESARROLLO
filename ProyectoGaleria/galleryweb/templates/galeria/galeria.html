@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería múltimedia</title>
+</head>
+<body>
+    <h3>Galería múltimedia</h3>
+    {% for archivo in multimedia %}
+        {% if archivo.archivoImagen == None %}
+            <img src="{{ archivo.url }}" width="300px", height="300px"/>
+        {% else %}
+            <img src="/{{ archivo.archivoImagen }}" width="300px", height="300px"/>
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>

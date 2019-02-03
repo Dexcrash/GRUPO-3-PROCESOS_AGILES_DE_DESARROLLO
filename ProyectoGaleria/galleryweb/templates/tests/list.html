@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería de imágenes</title>
+</head>
+<body>
+    <h3>Galería de imágenes</h3>
+    {% for image in images_list %}
+        <script>
+            console.log("{{ image.imageFile }}");
+        </script>
+        {% if image.imageFile == None %}
+            <img src="{{ image.url }}" width="300px", height="300px">
+        {% else %}
+            <img src="/{{ image.imageFile }}" width="300px", height="300px">
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
