@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import  ModelForm
 
+
 # Create your models here.
 class Usuario(models.Model):
     nombre = models.CharField(max_length=200)
@@ -9,17 +10,20 @@ class Usuario(models.Model):
     def __str__(self):
         return 'Usuario: ' + self.nombre + ' ' + self.apellido
 
+
 class TipoMultimedia(models.Model):
     tipo = models.CharField(max_length=200)
 
     def __str__(self):
         return self.tipo
 
+
 class Categoria(models.Model):
     nombre = models.CharField(max_length=200)
 
     def __str__(self):
         return 'Nombre categoria: ' + self.nombre
+
 
 class Multimedia(models.Model):
     titulo = models.CharField(max_length=200)

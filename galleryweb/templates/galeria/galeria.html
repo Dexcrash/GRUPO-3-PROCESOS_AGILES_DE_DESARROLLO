@@ -16,7 +16,7 @@
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
             <a class="navbar-brand" href="#">Multimedia Album</a>
-            <div class="collapse navbar-collapse" id="navbar1">
+			<div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <button class="btn ml-2 btn-secondary">Login</button>
@@ -34,12 +34,12 @@
         <div class="col-md-4">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Medio:</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo de medio:</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
+                    <option selected>Seleccionar</option>
+                    <option value="1">Audio</option>
+                    <option value="2">Imagen</option>
                     <option value="3">Three</option>
                 </select>
             </div>
@@ -50,10 +50,12 @@
                     <label class="input-group-text" for="inputGroupSelect01">Categorias:</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Seleccionar</option>
+					<option value="1">Arte</option>
+                    <option value="2">Naturaleza</option>
+                    <option value="3">Música</option>
+					<option value="4">Tecnología</option>
+                    
                 </select>
             </div>
         </div>
@@ -69,7 +71,6 @@
 
         <div class="col-lg-4 col-md-4 col-xs-6 thumb">
             <div class="card mb-4 shadow-sm">
-                <!--div class="card-image">-->
                 {% if media.tipo == tipo_Imagen %}
                 <img class="card-img-top" src="/{{media.archivo}}" alt="Card image cap">
                 {% elif media.tipo == tipo_Video %}
@@ -85,11 +86,10 @@
                     </video>
                 </div>
                 {% endif %}
-                <!--</div>-->
                 <div class="card-body">
                     <h5 class="card-title">{{media.titulo}}</h5>
-                    <p class="card-text" style="height: 53px; overflow: hidden;  text-overflow: ellipsis;">
-                        {{media.info}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">{{media.autor}}</p>
+					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">{{media.fecha_creacion}}</p>
                     <a href="#" class="btn btn-secondary">Detalle</a>
                 </div>
             </div>
