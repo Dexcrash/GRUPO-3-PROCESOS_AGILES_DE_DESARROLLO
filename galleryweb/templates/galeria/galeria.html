@@ -72,7 +72,9 @@
         <div class="col-lg-4 col-md-4 col-xs-6 thumb">
             <div class="card mb-4 shadow-sm">
                 {% if media.tipo == tipo_Imagen %}
-                <img class="card-img-top" src="/{{media.archivo}}" alt="Card image cap">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img class="card-img-top" src="/{{media.archivo}}" alt="Card image cap">
+                </div>
                 {% elif media.tipo == tipo_Video %}
                 <div class="embed-responsive embed-responsive-4by3">
                     <video frameborder="0" allowfullscreen controls>
