@@ -23,8 +23,12 @@ class Categoria(models.Model):
 
 class Multimedia(models.Model):
     titulo = models.CharField(max_length=200)
+    autor = models.CharField(max_length=200)
+    ciudad = models.CharField(max_length=200)
+    pais = models.CharField(max_length=200)
     url = models.CharField(max_length=1000)
     info = models.CharField(max_length=1000)
+    fecha_creacion = models.DateTimeField(auto_now_add=True, blank=True)
     archivo = models.FileField(upload_to='files', blank=True, null=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     tipo = models.ForeignKey(TipoMultimedia, on_delete=models.CASCADE)
@@ -33,10 +37,11 @@ class Multimedia(models.Model):
     def __str__(self):
         return 'Multimedia: ' + self.titulo
 
+
 class MultimediaForm(ModelForm):
     class Meta:
         model = Multimedia
-        fields = ['titulo', 'url', 'usuario', 'info', 'tipo', 'categoria', 'archivo']
+        fields = ['titulo', 'url', 'usuario', 'autor', 'pais', 'ciudad', 'info', 'tipo', 'categoria', 'archivo']
 
 class Clip(models.Model):
     nombre = models.CharField(max_length=200)
