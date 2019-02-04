@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Multimedia, TipoMultimedia, MultimediaForm
 from django.urls import reverse
 
+
 # Create your views here.
 
 def galeria(request):
@@ -14,6 +15,7 @@ def galeria(request):
                'tipo_Video': list(tipo_list)[2]}
 
     return render(request, 'galeria/galeria.html', context)
+
 
 def add_image(request):
     if request.method == 'POST':
