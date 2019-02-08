@@ -40,7 +40,7 @@
                     <option selected>Seleccionar</option>
                     <option value="1">Audio</option>
                     <option value="2">Imagen</option>
-                    <option value="3">Three</option>
+                    <option value="3">Video</option>
                 </select>
             </div>
         </div>
@@ -55,7 +55,7 @@
                     <option value="2">Naturaleza</option>
                     <option value="3">Música</option>
 					<option value="4">Tecnología</option>
-                    
+
                 </select>
             </div>
         </div>
@@ -71,25 +71,32 @@
 
         <div class="col-lg-4 col-md-4 col-xs-6 thumb">
             <div class="card mb-4 shadow-sm">
+
                 {% if media.tipo == tipo_Imagen %}
-                <img class="card-img-top" src="/{{media.archivo}}" alt="Card image cap">
-                {% elif media.tipo == tipo_Video %}
+                {% if media.archivo == '' %}
+                <img class="card-img-top" alt="Card image cap" src="{{media.url}}" />
+                {% else %}
+                <img class="card-img-top" alt="Card image cap" src="/{{media.archivo}}" />
+                {% endif %}
+                {% else %}
+                {% if media.archivo == '' %}
+                <div class="embed-responsive embed-responsive-4by3">
+                    <video frameborder="0" allowfullscreen controls>
+                        <source src="{{media.url}}" type="video/mp4">
+                    </video>
+                </div>
+                {% else %}
                 <div class="embed-responsive embed-responsive-4by3">
                     <video frameborder="0" allowfullscreen controls>
                         <source src="/{{media.archivo}}" type="video/mp4">
                     </video>
                 </div>
-                {% elif media.tipo == tipo_Audio %}
-                <div class="embed-responsive embed-responsive-4by3">
-                    <video frameborder="0" controls>
-                        <source src="/{{media.archivo}}" type="video/mp4">
-                    </video>
-                </div>
+                {% endif %}
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{media.titulo}}</h5>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">{{media.autor}}</p>
-					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">{{media.fecha_creacion}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
+					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
                     <a href="#" class="btn btn-secondary">Detalle</a>
                 </div>
             </div>
