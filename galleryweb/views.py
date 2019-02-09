@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Multimedia, TipoMultimedia, MultimediaForm
+from .models import Multimedia, TipoMultimedia
+from .forms import SignUpForm, MultimediaForm
 from django.urls import reverse
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
 
 
 # Create your views here.
@@ -26,3 +29,18 @@ def add_image(request):
     else:
         form = MultimediaForm()
     return render(request, 'galeria/file_form.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return render(request, 'galeria/galeria.html',)
+    else:
+        form = SignUpForm()
+    return render(request, 'galeria/signup.html', {'form': form})
