@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Multimedia, TipoMultimedia
-from .forms import SignUpForm, MultimediaForm
+from .forms import SignUpForm, LoginForm, MultimediaForm
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
@@ -43,4 +43,22 @@ def signup(request):
             return render(request, 'galeria/galeria.html',)
     else:
         form = SignUpForm()
+
     return render(request, 'galeria/file_form.html', {'form': form})
+
+
+def loginview(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+
+        return render(request, 'galeria/galeria.html', )
+        # Redirect to a success page.
+        ...
+    else:
+        form = LoginForm()
+        # Return an 'invalid login' error message.
+        ...
+    return render(request, 'galeria/signup.html', {'form': form})
