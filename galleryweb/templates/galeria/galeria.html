@@ -16,13 +16,18 @@
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
             <a class="navbar-brand" href="#">Multimedia Album</a>
-			<div class="collapse navbar-collapse" id="navbar1">
+            <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <button class="btn ml-2 btn-secondary">Login</button>
+                        <button id="registerButton" class="btn ml-2 btn-secondary">Register</button>
+                        <script type="text/javascript">
+                        document.getElementById("registerButton").onclick = function () {
+                            location.href = "/signup";
+                        };
+                        </script>
                     </li>
                     <li class="nav-item">
-                        <button class="btn ml-2 btn-secondary">Register</button>
+                        <button onclick="" class="btn ml-2 btn-secondary">Login</button>
                     </li>
                 </ul>
             </div>
@@ -51,10 +56,10 @@
                 </div>
                 <select class="custom-select" id="inputGroupSelect02">
                     <option selected>Seleccionar</option>
-					<option value="1">Arte</option>
+                    <option value="1">Arte</option>
                     <option value="2">Naturaleza</option>
                     <option value="3">Música</option>
-					<option value="4">Tecnología</option>
+                    <option value="4">Tecnología</option>
 
                 </select>
             </div>
@@ -74,9 +79,9 @@
 
                 {% if media.tipo == tipo_Imagen %}
                 {% if media.archivo == '' %}
-                <img class="card-img-top" alt="Card image cap" src="{{media.url}}" />
+                <img class="card-img-top" alt="Card image cap" src="{{media.url}}"/>
                 {% else %}
-                <img class="card-img-top" alt="Card image cap" src="/{{media.archivo}}" />
+                <img class="card-img-top" alt="Card image cap" src="/{{media.archivo}}"/>
                 {% endif %}
                 {% else %}
                 {% if media.archivo == '' %}
@@ -96,7 +101,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{media.titulo}}</h5>
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
-					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha:
+                        {{media.fecha_creacion}}</p>
                     <a href="#" class="btn btn-secondary">Detalle</a>
                 </div>
             </div>
@@ -105,7 +111,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4 bg-dark"  style="color: #fff;">
+    <footer class="page-footer font-small pt-4 bg-dark" style="color: #fff;">
         <!-- Footer Links -->
         <div class="container text-center text-md-left">
             <!-- Footer links -->
