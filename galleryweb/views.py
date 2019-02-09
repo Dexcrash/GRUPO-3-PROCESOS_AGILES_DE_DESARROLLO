@@ -15,8 +15,8 @@ def galeria(request):
     context = {'media_list': media_list,
                'tipo_Audio': list(tipo_list)[0],
                'tipo_Imagen': list(tipo_list)[1],
-               'tipo_Video': list(tipo_list)[2]}
-
+               'tipo_Video': list(tipo_list)[2],
+               'form': ''}
     return render(request, 'galeria/galeria.html', context)
 
 
@@ -48,17 +48,20 @@ def signup(request):
 
 
 def loginview(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-
-        return render(request, 'galeria/galeria.html', )
-        # Redirect to a success page.
-        ...
-    else:
+    if request.method == 'POST':
         form = LoginForm()
-        # Return an 'invalid login' error message.
-        ...
-    return render(request, 'galeria/signup.html', {'form': form})
+        if form.is_valid():
+            form.save()
+
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return render(request, 'galeria/galeria.html')
+                # Redirect to a success page.
+            else:
+                form = LoginForm()
+                # Return an 'invalid login' error message.
+    return render(request, 'galeria/file_form.html', {'form': form})
