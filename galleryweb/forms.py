@@ -5,7 +5,7 @@ from django.db import models
 
 
 class SignUpForm(UserCreationForm):
-    first_name = models.CharField(max_length=30, help_text='Optional.')
+    first_name = models.CharField(max_length=2, help_text='Optional.')
     last_name = models.CharField(max_length=30, help_text='Optional.')
     email = models.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 

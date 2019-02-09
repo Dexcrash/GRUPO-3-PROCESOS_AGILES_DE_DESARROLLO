@@ -43,4 +43,4 @@ def signup(request):
             return render(request, 'galeria/galeria.html',)
     else:
         form = SignUpForm()
-    return render(request, 'galeria/signup.html', {'form': form})
+    return render(request, 'galeria/file_form.html', {'form': form})
