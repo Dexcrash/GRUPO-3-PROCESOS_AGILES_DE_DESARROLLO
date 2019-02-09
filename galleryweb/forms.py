@@ -18,4 +18,3 @@ class MultimediaForm(ModelForm):
     class Meta:
         model = Multimedia
         fields = ['titulo', 'url', 'usuario', 'autor', 'pais', 'ciudad', 'info', 'tipo', 'categoria', 'archivo']
-
