@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Detalle</title>
+</head>
+<body style="background: url(../../../files/fondo.jpg) no-repeat center center fixed">
+<div class="container" style="align-self: center; background-color: #fefefe; max-height: 100%">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
+            <a class="navbar-brand" href="#">Multimedia Album</a>
+			<div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+ <div class="row">
+<br>
+ </div>
+
+    <!-- Card que contiene cada elemento mutlimedia-->
+    <div class="row">
+
+    <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+
+{% if media.tipo == tipo_Imagen %}
+               {% if media.archivo == '' %}
+               <img class="card-img-top" alt="Card image cap" src="{{media.url}}" />
+               {% else %}
+               <img class="card-img-top" alt="Card image cap" src="/{{media.archivo}}" />
+               {% endif %}
+               {% else %}
+               {% if media.archivo == '' %}
+               <div class="embed-responsive embed-responsive-4by3">
+                   <video frameborder="0" allowfullscreen controls>
+                       <source src="{{media.url}}" type="video/mp4">
+                   </video>
+               </div>
+               {% else %}
+               <div class="embed-responsive embed-responsive-4by3">
+                   <video frameborder="0" allowfullscreen controls>
+                       <source src="/{{media.archivo}}" type="video/mp4">
+                   </video>
+               </div>
+               {% endif %}
+               {% endif %}
+
+    </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{media.titulo}}</h5>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
+					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Ciudad: {{media.ciudad}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">País: {{media.pais}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">URL: {{media.url}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Creado por: {{media.usuario}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Tipo: {{media.tipo}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"> {{media.categoria}}</p><br>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4 bg-dark"  style="color: #fff;">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">PROYECTO GALERÍA</h6>
+                    <p>Es una galería que nos muestra imágenes, videos y audios. Podemos ver el detalle de cada archivo
+                        multimedia y agregar clips.</p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">INTEGRANTES</h6>
+                    <p>
+                        <span>Camilo Andres Sánchez Salamanca</span>
+                    </p>
+                    <p>
+                        <span>Daury Nathaly Lecca Hernandez</span>
+                    </p>
+                    <p>
+                        <span>Hada Natalia Angel Cruz</span>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold" style="color:#343a40">XXXXX</h6>
+                    <p>
+                        <span>Julian Andres Picon Rincon</span>
+                    </p>
+                    <p>
+                        <span>Nicolás Lema Rodríguez</span>
+                    </p>
+                    <p>
+                        <span>Rafael Alexander Bermudez Riveros</span>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+            </div>
+            <hr>
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
+                    <!--Copyright-->
+                    <p class="text-center text-md-left">© 2019 Copyright:
+                        <strong>Procesos ágiles de desarrollo de software</strong>
+                    </p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </footer>
+    <!-- Footer -->
+</div>
+
+</body>
+</html>
