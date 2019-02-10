@@ -1,14 +1,20 @@
 from django.db import models
-from django.forms import  ModelForm
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 # Create your models here.
-class Usuario(models.Model):
-    nombre = models.CharField(max_length=200)
-    apellido = models.CharField(max_length=1000)
+class Usuario(AbstractUser):
+    ciudad = models.CharField(max_length=200)
+    pais = models.CharField(max_length=200)
+    foto = models.FileField(upload_to='files', blank=True, null=True)
+
+    def __init__(self, *args, **kwargs):
+        super(Usuario, self).__init__(*args, **kwargs)
+        self._meta.get_field('username').verbose_name = 'Nombre de usuario'
 
     def __str__(self):
-        return 'Usuario: ' + self.nombre + ' ' + self.apellido
+        return 'Usuario: ' + self.username
 
 
 class TipoMultimedia(models.Model):
@@ -34,7 +40,7 @@ class Multimedia(models.Model):
     info = models.CharField(max_length=1000)
     fecha_creacion = models.DateTimeField(auto_now_add=True, blank=True)
     archivo = models.FileField(upload_to='files', blank=True, null=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+')
     tipo = models.ForeignKey(TipoMultimedia, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
@@ -42,14 +48,9 @@ class Multimedia(models.Model):
         return 'Multimedia: ' + self.titulo
 
 
-class MultimediaForm(ModelForm):
-    class Meta:
-        model = Multimedia
-        fields = ['titulo', 'url', 'usuario', 'autor', 'pais', 'ciudad', 'info', 'tipo', 'categoria', 'archivo']
-
 class Clip(models.Model):
     nombre = models.CharField(max_length=200)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+')
     multimedia = models.ForeignKey(Multimedia, on_delete=models.CASCADE)
 
     def __str__(self):

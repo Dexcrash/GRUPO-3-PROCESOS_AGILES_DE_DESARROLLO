@@ -15,15 +15,29 @@
 <div class="container" style="align-self: center; background-color: #fefefe; max-height: 100%">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
-            <a class="navbar-brand" href="#">Multimedia Album</a>
-			<div class="collapse navbar-collapse" id="navbar1">
+            <a class="h3 navbar-brand" href="/">Multimedia Album</a>
+            <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <button class="btn ml-2 btn-secondary">Login</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn ml-2 btn-secondary">Register</button>
-                    </li>
+                    {% block content %}
+                    {% if user.is_authenticated %}
+                    <h5 class="navbar-text" >
+                        Hola {{ user.username }}
+                    </h5>
+
+                    <button onclick="window.location.replace('/editUser');" class="btn ml-2 btn-secondary">Edit</button>
+                    <button onclick="window.location.replace('/accounts/logout');" class="btn ml-2 btn-secondary">Logout</button>
+                    {% else %}
+                        <button onclick="window.location.replace('/accounts/login');" class="btn ml-2 btn-secondary">Login</button>
+                        <li class="nav-item">
+                            <button id="registerButton" class="btn ml-2 btn-secondary">Register</button>
+                            <script type="text/javascript">
+                            document.getElementById("registerButton").onclick = function () {
+                                location.href = "/signup";
+                            };
+                            </script>
+                        </li>
+                    {% endif %}
+                    {% endblock %}
                 </ul>
             </div>
         </nav>
@@ -31,7 +45,7 @@
 
     <div class="row" style="padding-top: 10px">
         <div class="col-md-2"></div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Tipo de medio:</label>
@@ -44,22 +58,30 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Categorias:</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect02">
                     <option selected>Seleccionar</option>
-					<option value="1">Arte</option>
+                    <option value="1">Arte</option>
                     <option value="2">Naturaleza</option>
                     <option value="3">Música</option>
-					<option value="4">Tecnología</option>
+                    <option value="4">Tecnología</option>
 
                 </select>
             </div>
         </div>
+
+        {% if user.is_authenticated %}
+        <div class="col-md-2">
+            <button onclick="window.location.replace('/add');" class="btn ml-2 btn-secondary">Agregar Multimedia</button>
+        </div>
         <div class="col-md-2"></div>
+        {% else %}
+        <div class="col-md-4"></div>
+        {% endif %}
     </div>
 
 
@@ -71,33 +93,18 @@
 
         <div class="col-lg-4 col-md-4 col-xs-6 thumb">
             <div class="card mb-4 shadow-sm">
-
                 {% if media.tipo == tipo_Imagen %}
-                {% if media.archivo == '' %}
-                <img class="card-img-top" alt="Card image cap" src="{{media.url}}" />
+                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Photo-icon.png" />
+                {% elif media.tipo == tipo_Video%}
+                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Dia-icon.png" />
                 {% else %}
-                <img class="card-img-top" alt="Card image cap" src="/{{media.archivo}}" />
-                {% endif %}
-                {% else %}
-                {% if media.archivo == '' %}
-                <div class="embed-responsive embed-responsive-4by3">
-                    <video frameborder="0" allowfullscreen controls>
-                        <source src="{{media.url}}" type="video/mp4">
-                    </video>
-                </div>
-                {% else %}
-                <div class="embed-responsive embed-responsive-4by3">
-                    <video frameborder="0" allowfullscreen controls>
-                        <source src="/{{media.archivo}}" type="video/mp4">
-                    </video>
-                </div>
-                {% endif %}
+                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Cassette-icon.png" />
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{media.titulo}}</h5>
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
 					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
-                    <a href="#" class="btn btn-secondary">Detalle</a>
+                    <a href ="{% url 'galleryweb:media_detail' media.id%}" class="btn btn-secondary">Detalle</a>
                 </div>
             </div>
         </div>
@@ -105,7 +112,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4 bg-dark"  style="color: #fff;">
+    <footer class="page-footer font-small pt-4 bg-dark" style="color: #fff;">
         <!-- Footer Links -->
         <div class="container text-center text-md-left">
             <!-- Footer links -->
