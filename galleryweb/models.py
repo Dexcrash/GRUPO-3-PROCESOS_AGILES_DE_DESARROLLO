@@ -9,6 +9,10 @@ class Usuario(AbstractUser):
     pais = models.CharField(max_length=200)
     foto = models.FileField(upload_to='files', blank=True, null=True)
 
+    def __init__(self, *args, **kwargs):
+        super(Usuario, self).__init__(*args, **kwargs)
+        self._meta.get_field('username').verbose_name = 'Nombre de usuario'
+
     def __str__(self):
         return 'Usuario: ' + self.username
 

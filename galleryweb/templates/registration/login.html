@@ -15,90 +15,67 @@
 <div class="container" style="align-self: center; background-color: #fefefe; max-height: 100%">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
-            <a class="navbar-brand" href="#">Multimedia Album</a>
+            <a class="navbar-brand" href="/">Multimedia Album</a>
             <div class="collapse navbar-collapse" id="navbar1">
-                <ul class="navbar-nav ml-auto">
-                    {% block content %}
-                    {% if user.is_authenticated %}
-                        <p style="color: #fff; vertical-align: middle">Hola {{ user.username }}</p>
-                        <button onclick="window.location.replace('/accounts/logout');" class="btn ml-2 btn-secondary">Logout</button>
-                    {% else %}
-                        <button onclick="window.location.replace('/accounts/login');" class="btn ml-2 btn-secondary">Login</button>
-                        <li class="nav-item">
-                            <button id="registerButton" class="btn ml-2 btn-secondary">Register</button>
-                            <script type="text/javascript">
-                            document.getElementById("registerButton").onclick = function () {
-                                location.href = "/signup";
-                            };
-                            </script>
-                        </li>
-                    {% endif %}
-                    {% endblock %}
 
-                </ul>
             </div>
         </nav>
     </div>
 
-    <div class="row" style="padding-top: 10px">
-        <div class="col-md-2"></div>
-        <div class="col-md-4">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Tipo de medio:</label>
+    <!-- Form para agregar multimedia-->
+    <div class="row" style="padding: 20px; align-self: center">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Login</h3>
+                <form method="post">
+                {% csrf_token %}
+
+                {% load widget_tweaks %}
+
+                {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+                {% endfor %}
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in form.non_field_errors %}
+                    {{ error }}
+                    {% endfor %}
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Seleccionar</option>
-                    <option value="1">Audio</option>
-                    <option value="2">Imagen</option>
-                    <option value="3">Video</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Categorias:</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>Seleccionar</option>
-                    <option value="1">Arte</option>
-                    <option value="2">Naturaleza</option>
-                    <option value="3">Música</option>
-                    <option value="4">Tecnología</option>
-
-                </select>
-            </div>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-
-
-    <!-- Card que contiene cada elemento mutlimedia-->
-    <div class="row">
-
-
-        {% for media in media_list %}
-
-        <div class="col-lg-4 col-md-4 col-xs-6 thumb">
-            <div class="card mb-4 shadow-sm">
-                {% if media.tipo == tipo_Imagen %}
-                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Photo-icon.png" />
-                {% elif media.tipo == tipo_Video%}
-                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Dia-icon.png" />
-                {% else %}
-                <img class="card-img-top img-thumbnail" alt="Card image cap" src="http://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Cassette-icon.png" />
                 {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{media.titulo}}</h5>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
-					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
-                    <a href ="{% url 'galleryweb:media_list' media.id%}" class="btn btn-secondary">Detalle</a>
+
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+
+                    {% if form.is_bound %}
+                    {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                    {% endif %}
+                    {% else %}
+                    {% render_field field class="form-control" %}
+                    {% endif %}
+
+                    {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
                 </div>
+                {% endfor %}
+
+
+                <button type="submit">Login</button>
+                </form>
             </div>
         </div>
-        {%endfor%}
     </div>
+        <!-- templates/registration/login.html -->
 
     <!-- Footer -->
     <footer class="page-footer font-small pt-4 bg-dark" style="color: #fff;">
