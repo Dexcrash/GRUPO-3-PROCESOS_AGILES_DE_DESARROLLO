@@ -15,7 +15,7 @@
 <div class="container" style="align-self: center; background-color: #fefefe; max-height: 100%">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
-            <a class="navbar-brand" href="#">Multimedia Album</a>
+            <a class="navbar-brand" href="/">Multimedia Album</a>
 			<div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -56,13 +56,12 @@
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{media.titulo}}</h5>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
-					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">País: {{media.pais}}</p>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Ciudad: {{media.ciudad}}</p>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">URL: {{media.url}}</p>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Creado por: {{media.usuario}}</p>
-                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Tipo: {{media.tipo}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor:</b> {{media.autor}}</p>
+					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b> {{media.fecha_creacion}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>País: </b>{{media.pais}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Ciudad:</b> {{media.ciudad}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Creado por: </b>{{media.usuario}}</p>
+                    <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Tipo:</b> {{media.tipo}}</p>
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"> {{media.categoria}}</p>
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"> {{media.info}}</p>
                 </div>
