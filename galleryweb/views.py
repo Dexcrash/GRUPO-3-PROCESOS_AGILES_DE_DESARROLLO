@@ -5,6 +5,9 @@ from .forms import SignUpForm, LoginForm, MultimediaForm
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
 
 
 # Create your views here.
@@ -48,17 +51,22 @@ def signup(request):
 
 
 def loginview(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
 
-        return render(request, 'galeria/galeria.html', )
-        # Redirect to a success page.
-        ...
+        if user is not None:
+            login(request, user)
+
+            return render(request, 'galeria/galeria.html', )
+        else:
+            form.get_invalid_login_error()
+            #messages.error(request, 'username or password not correct')
+            return render(request, 'galeria/file_form.html', {'form': form})
+
     else:
-        form = LoginForm()
-        # Return an 'invalid login' error message.
-        ...
-    return render(request, 'galeria/signup.html', {'form': form})
+        form = AuthenticationForm()
+
+    return render(request, 'galeria/file_form.html', {'form': form})
