@@ -97,7 +97,7 @@
                     <h5 class="card-title">{{media.titulo}}</h5>
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Autor: {{media.autor}}</p>
 					<p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;">Fecha: {{media.fecha_creacion}}</p>
-                    <a href="#" class="btn btn-secondary">Detalle</a>
+                    <a href ="{% url 'galleryweb:media_list' media.id%}" class="btn btn-secondary">Detalle</a>
                 </div>
             </div>
         </div>

@@ -9,4 +9,4 @@ Aplicación Django
 - runtime.txt
 - Instalación Gunicorn
 - Git-> git push heroku master (Heroku Cli)
-- heroku ps:scale web=1 (Heroku Cli)
+- heroku ps:scale web=1 (Heroku Cli) 

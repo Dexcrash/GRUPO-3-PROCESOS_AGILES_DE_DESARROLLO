@@ -44,3 +44,14 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'galeria/signup.html', {'form': form})
+
+
+def media_list(request,media_id):
+        media = Multimedia.objects.get(id=media_id)
+        tipo = TipoMultimedia.objects.all()
+        context = {'media': media,
+                   'tipo_Audio': list(tipo)[0],
+                   'tipo_Imagen': list(tipo)[1],
+                   'tipo_Video': list(tipo)[2]}
+        return render(request, 'galeria/mediaList.html', context)
+
