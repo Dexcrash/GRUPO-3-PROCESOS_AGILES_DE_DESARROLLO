@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import  HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Multimedia, TipoMultimedia
 from .forms import SignUpForm, MultimediaForm, ModifyUser
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 
@@ -19,8 +19,15 @@ def galeria(request):
                'tipo_Audio': list(tipo_list)[0],
                'tipo_Imagen': list(tipo_list)[1],
                'tipo_Video': list(tipo_list)[2],
-               'form': ''}
+               }
     return render(request, 'galeria/galeria.html', context)
+
+
+def media_detail(request, media_id):
+    media = Multimedia.objects.get(id=media_id)
+    tipo = TipoMultimedia.objects.all()
+    context = {'media': media, 'tipo_Audio': list(tipo)[0], 'tipo_Imagen': list(tipo)[1], 'tipo_Video': list(tipo)[2]}
+    return render(request, 'galeria/mediaDetail.html', context)
 
 
 def add_image(request):
@@ -49,14 +56,14 @@ def signup(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def media_detail(request,media_id):
+def media_list(request,media_id):
         media = Multimedia.objects.get(id=media_id)
         tipo = TipoMultimedia.objects.all()
         context = {'media': media,
                    'tipo_Audio': list(tipo)[0],
                    'tipo_Imagen': list(tipo)[1],
                    'tipo_Video': list(tipo)[2]}
-        return render(request, 'galeria/mediaDetail.html', context)
+        return render(request, 'galeria/mediaList.html', context)
 
 
 

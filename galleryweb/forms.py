@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from .models import Usuario, Multimedia
 from django.forms import ModelForm
 from django.db import models
@@ -27,6 +27,7 @@ class MultimediaForm(ModelForm):
 
 
 class ModifyUser(UserChangeForm):
+    password = None
     class Meta:
         model = Usuario
         fields = ('first_name', 'last_name', 'email', 'ciudad', 'pais', 'foto')
