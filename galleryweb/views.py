@@ -50,7 +50,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return render(request, 'galeria/galeria.html',)
+            return HttpResponseRedirect(reverse('files:list'))
     else:
         form = SignUpForm()
     return render(request, 'galeria/file_form.html', {'form': form})
@@ -81,7 +81,6 @@ def loginview(request):
             return render(request, 'galeria/galeria.html', )
         else:
             form.get_invalid_login_error()
-            #messages.error(request, 'username or password not correct')
             return render(request, 'galeria/file_form.html', {'form': form})
 
     else:
@@ -89,7 +88,7 @@ def loginview(request):
 
     return render(request, 'galeria/file_form.html', {'form': form})
 
-def editUser(request, slug=None):
+def editUser(request):
     """
     Editar usuario de forma simple.
     """
@@ -97,10 +96,8 @@ def editUser(request, slug=None):
     if request.method == 'POST':
         form = ModifyUser(request.POST, instance=user)
         if form.is_valid():
-            #Actualizar el objeto
-            user = form.save()
-            messages.success(request, 'Usuario actualizado exitosamente.', extra_tags='html_dante')
-            return render(request, 'galeria/galeria.html' )
+            form.save()
+            return HttpResponseRedirect(reverse('files:list'))
     else:
         form = ModifyUser(instance=user)
     context = {
