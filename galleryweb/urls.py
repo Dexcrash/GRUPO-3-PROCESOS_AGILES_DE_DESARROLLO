@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', views.galeria, name='list'),
     url(r'^editUser/$', views.editUser, name='editUser'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^detalle/(?P<media_id>\d+)/$', views.media_list, name='media_list'),
+    url(r'^detalle/(?P<media_id>\d+)/$', views.media_detail, name='media_detail'),
     url(r'^login/$', views.loginview, name='login'),
     url('accounts/', include('django.contrib.auth.urls')),  # new
 ]
