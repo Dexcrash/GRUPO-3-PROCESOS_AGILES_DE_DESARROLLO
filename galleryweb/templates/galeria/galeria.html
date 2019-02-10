@@ -21,6 +21,7 @@
                     {% block content %}
                     {% if user.is_authenticated %}
                         <p style="color: #fff; vertical-align: middle">Hola {{ user.username }}</p>
+                        <button onclick="window.location.replace('/editUser');" class="btn ml-2 btn-secondary">Edit</button>
                         <button onclick="window.location.replace('/accounts/logout');" class="btn ml-2 btn-secondary">Logout</button>
                     {% else %}
                         <button onclick="window.location.replace('/accounts/login');" class="btn ml-2 btn-secondary">Login</button>

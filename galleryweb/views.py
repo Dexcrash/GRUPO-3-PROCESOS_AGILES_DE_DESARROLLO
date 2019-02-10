@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import  HttpResponseRedirect
 from .models import Multimedia, TipoMultimedia
-from .forms import SignUpForm, LoginForm, MultimediaForm
+from .forms import SignUpForm, MultimediaForm, ModifyUser
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 
 
 
@@ -46,7 +46,7 @@ def signup(request):
             return render(request, 'galeria/galeria.html',)
     else:
         form = SignUpForm()
-    return render(request, 'galeria/signup.html', {'form': form})
+    return render(request, 'galeria/file_form.html', {'form': form})
 
 
 def media_list(request,media_id):
@@ -82,3 +82,21 @@ def loginview(request):
 
     return render(request, 'galeria/file_form.html', {'form': form})
 
+def editUser(request, slug=None):
+    """
+    Editar usuario de forma simple.
+    """
+    user = request.user
+    if request.method == 'POST':
+        form = ModifyUser(request.POST, instance=user)
+        if form.is_valid():
+            #Actualizar el objeto
+            user = form.save()
+            messages.success(request, 'Usuario actualizado exitosamente.', extra_tags='html_dante')
+            return render(request, 'galeria/galeria.html' )
+    else:
+        form = ModifyUser(instance=user)
+    context = {
+        'form': form,
+    }
+    return render(request, 'galeria/file_form.html', context)
