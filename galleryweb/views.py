@@ -47,15 +47,13 @@ def signup(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def loginview(request):
+def login(request):
+    form = LoginForm()
     if request.method == 'POST':
-        form = LoginForm()
         if form.is_valid():
             form.save()
-
             username = request.POST.get('username')
             password = request.POST.get('password')
-            raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
@@ -63,5 +61,4 @@ def loginview(request):
                 # Redirect to a success page.
             else:
                 form = LoginForm()
-                # Return an 'invalid login' error message.
     return render(request, 'galeria/file_form.html', {'form': form})

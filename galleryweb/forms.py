@@ -21,11 +21,8 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    email = models.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-
-    class Meta:
-        model = Usuario
-        fields = ('email', 'password1')
+    username = forms.CharField(max_length=30, help_text='Requerido.', label="Nombre de usuario")
+    password = forms.CharField(max_length=16, label='Contraseña', widget=forms.PasswordInput(attrs={'class': 'form-control', 'text': 'Contraseña'}))
 
 
 class MultimediaForm(ModelForm):
