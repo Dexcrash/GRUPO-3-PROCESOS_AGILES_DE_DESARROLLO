@@ -42,15 +42,11 @@
                 {% else %}
                 {% if media.archivo == '' %}
                 <div class="embed-responsive embed-responsive-4by3">
-                   <video frameborder="0" allowfullscreen controls>
-                       <source src="{{media.url}}" type="video/mp4">
-                   </video>
+                    <iframe src="{{media.url}}" frameborder="0" allowfullscreen controls></iframe>
                 </div>
                 {% else %}
                 <div class="embed-responsive embed-responsive-4by3">
-                   <video frameborder="0" allowfullscreen controls>
-                       <source src="/{{media.archivo}}" type="video/mp4">
-                   </video>
+                    <iframe src="/{{media.archivo}}" frameborder="0" allowfullscreen controls></iframe>
                 </div>
                 {% endif %}
                 {% endif %}

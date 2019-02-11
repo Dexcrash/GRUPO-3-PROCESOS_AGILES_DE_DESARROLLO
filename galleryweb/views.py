@@ -9,7 +9,6 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
-
 # Create your views here.
 
 def galeria(request):
@@ -66,8 +65,6 @@ def media_list(request,media_id):
         return render(request, 'galeria/mediaList.html', context)
 
 
-
-
 def loginview(request):
     if request.method == 'POST':
         form = AuthenticationForm(request.POST)
@@ -87,6 +84,7 @@ def loginview(request):
         form = AuthenticationForm()
 
     return render(request, 'galeria/file_form.html', {'form': form})
+
 
 def editUser(request):
     """
