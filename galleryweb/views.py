@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Multimedia, TipoMultimedia
-from .forms import SignUpForm, MultimediaForm, ModifyUser
+from .models import Multimedia, TipoMultimedia, Clip
+from .forms import SignUpForm, MultimediaForm, ModifyUser, ClipForm
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
@@ -25,7 +25,22 @@ def galeria(request):
 def media_detail(request, media_id):
     media = Multimedia.objects.get(id=media_id)
     tipo = TipoMultimedia.objects.all()
-    context = {'media': media, 'tipo_Audio': list(tipo)[0], 'tipo_Imagen': list(tipo)[1], 'tipo_Video': list(tipo)[2]}
+    if request.method == 'POST':
+        clipForm = ClipForm(request.POST)
+        if clipForm.is_valid():
+            clipForm.save()
+    else:
+        clipForm = ClipForm(initial={'multimedia': media, 'usuario': request.user})
+    clipsRecomendatos = Clip.objects.filter(multimedia=media)
+    print(clipsRecomendatos)
+    context = {
+                'media': media,
+                'tipo_Audio': list(tipo)[0],
+                'tipo_Imagen': list(tipo)[1],
+                'tipo_Video': list(tipo)[2],
+                'form': clipForm,
+                'clipsRecomendatos': clipsRecomendatos
+    }
     return render(request, 'galeria/mediaDetail.html', context)
 
 
