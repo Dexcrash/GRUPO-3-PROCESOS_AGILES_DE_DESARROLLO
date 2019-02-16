@@ -42,7 +42,7 @@
                 {% else %}
                 {% if media.archivo == '' %}
                 <div class="embed-responsive embed-responsive-4by3">
-                    <iframe src="{{media.url}}" frameborder="0" allowfullscreen controls></iframe>
+                    <iframe src="{{media.url}}" frameborder="0" allowfullscreen  autoplay="1"></iframe>
                 </div>
                 {% else %}
                 <div class="embed-responsive embed-responsive-4by3">
@@ -62,8 +62,134 @@
                     <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"> {{media.info}}</p>
                 </div>
             </div>
+
         </div>
     </div>
+
+    <!-- Clips recomendados -->
+    <div class="row" style="padding-top: 10px">
+        <div class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
+            <div class="">
+                <fieldset class="border p-2">
+                    <legend  class="w-auto">Clips recomendados</legend>
+                    <div class="d-flex">
+                        <ul class="mx-auto justify-content-center">
+                            {% for clip in clipsRecomendatos %}
+                            <li class="">
+                                {{ clip.nombre }}
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#clipModal{{clip.id}}">
+                                  Play
+                                </button>
+                            </li>
+                                <!-- Modal -->
+                                <div class="modal fade" id="clipModal{{clip.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Reproducir clip</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Nombre:</b> {{clip.nombre}}</p>
+                                        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Seg. Inicio: </b> {{clip.segundoInicio}}</p>
+                                        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Seg. Fin: </b>{{clip.segundoFinal}}</p>
+                                         {% if media.tipo == tipo_Video %}
+                                            {% if media.archivo == '' %}
+                                                <iframe src="{{media.url}}?start={{clip.segundoInicio}}&end={{clip.segundoFinal}}&controls=0" frameborder="0" allowfullscreen></iframe>
+                                            {% else %}
+                                                <iframe src="/{{media.archivo}}?start={{clip.segundoInicio}}&end={{clip.segundoFinal}}&controls=0" frameborder="0" allowfullscreen controls></iframe>
+                                            {% endif %}
+                                         {% else %}
+                                             <audio controls autoplay>
+                                             {% if media.archivo == '' %}
+                                                <source src="{{media.url}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}" ></source>
+                                            {% else %}
+                                                <source src="/{{media.archivo}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}"></source>
+                                            {% endif %}
+                                              Your browser does not support the audio element.
+                                            </audio>
+                                        {% endif %}
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <!-- Agregar Clip -->
+        <div class="row" style="padding-top: 10px">
+            <div class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
+                <div class="">
+                    <fieldset class="border p-2">
+                        <legend  class="w-auto">Agregar Clip</legend>
+                            <!-- Form para agregar clip-->
+                            <div class="row" style="padding: 20px; align-self: center">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    {% block content %}
+                                    <form method="post" novalidate>
+                                        {% csrf_token %}
+
+                                        {% load widget_tweaks %}
+
+                                        {% for hidden_field in form.hidden_fields %}
+                                        {{ hidden_field }}
+                                        {% endfor %}
+
+                                        {% if form.non_field_errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {% for error in form.non_field_errors %}
+                                            {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+
+                                        {% for field in form.visible_fields %}
+                                        <div class="form-group">
+                                            {{ field.label_tag }}
+
+                                            {% if form.is_bound %}
+                                            {% if field.errors %}
+                                            {% render_field field class="form-control is-invalid" %}
+                                            {% for error in field.errors %}
+                                            <div class="invalid-feedback">
+                                                {{ error }}
+                                            </div>
+                                            {% endfor %}
+                                            {% else %}
+                                            {% render_field field class="form-control is-valid" %}
+                                            {% endif %}
+                                            {% else %}
+                                            {% render_field field class="form-control" %}
+                                            {% endif %}
+
+                                            {% if field.help_text %}
+                                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                        <button type="submit" class="btn btn-warning">Guardar</button>
+                                    </form>
+                                    {% endblock %}
+                                </div>
+                            </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row" style="padding: 20px">
         <div class="col text-center">
             <a  href="/" class="btn btn-secondary">Devolver</a>
@@ -132,6 +258,38 @@
     </footer>
     <!-- Footer -->
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reproducir clip</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
