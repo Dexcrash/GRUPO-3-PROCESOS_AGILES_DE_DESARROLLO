@@ -7,8 +7,10 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 # Create your views here.
 
 def galeria(request):
@@ -19,7 +21,8 @@ def galeria(request):
                'tipo_Imagen': list(tipo_list)[1],
                'tipo_Video': list(tipo_list)[2],
                }
-    return render(request, 'galeria/galeria.html', context)
+    return HttpResponse(serializers.serialize("json", media_list))
+
 
 
 def media_detail(request, media_id):
