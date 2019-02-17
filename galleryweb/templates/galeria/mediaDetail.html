@@ -102,11 +102,11 @@
                                                 <iframe src="/{{media.archivo}}?start={{clip.segundoInicio}}&end={{clip.segundoFinal}}&controls=0" frameborder="0" allowfullscreen controls></iframe>
                                             {% endif %}
                                          {% else %}
-                                             <audio controls autoplay>
+                                             <audio controls>
                                              {% if media.archivo == '' %}
-                                                <source src="{{media.url}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}" ></source>
+                                                <source src="{{media.url}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}"/>
                                             {% else %}
-                                                <source src="/{{media.archivo}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}"></source>
+                                                <source src="/{{media.archivo}}#t={{clip.segundoInicio}},{{clip.segundoFinal}}"/>
                                             {% endif %}
                                               Your browser does not support the audio element.
                                             </audio>
