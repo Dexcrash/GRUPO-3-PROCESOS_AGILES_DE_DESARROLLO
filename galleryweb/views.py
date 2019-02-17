@@ -78,10 +78,9 @@ def signup_old(request):
 def signup(request):
     if request.method == 'POST':
         jsonUser = json.loads(request.body)
-        print(jsonUser)
         newUsuario = Usuario(
             username=jsonUser['username'],
-            password = jsonUser['password'],
+            password=jsonUser['password'],
             last_name=jsonUser['last_name'],
             email=jsonUser['email'],
             ciudad=jsonUser['ciudad'],
