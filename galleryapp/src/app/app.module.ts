@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { ClipsComponent } from './clips/clips.component';
     MessagesComponent,
     RegisterComponent,
     ClipsComponent,
-    
+    NgbModal
   ],
   imports: [
     BrowserModule,
@@ -27,9 +28,9 @@ import { ClipsComponent } from './clips/clips.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
+  exports: [NgbModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

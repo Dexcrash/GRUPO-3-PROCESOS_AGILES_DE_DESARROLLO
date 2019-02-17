@@ -13,11 +13,13 @@
           <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Creado por: </b>{{multimedia.autor}}</p>
           <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Tipo: </b>{{multimedia.type}}</p>
           <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Categoria: </b>{{multimedia.type}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Descrpción: </b>{{multimedia.description}}</p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Descrpción: </b>{{multimedia.description}}</p>          
+          <div *ngIf="multimedia.type == 3 || multimedia.type == 1">
+            <app-clips></app-clips>
+          </div>
           <button class="btn btn-secondary" (click)="goBack()">Volver</button>
         </div>
       </div>
     </div>
   </div>
-  <app-clips></app-clips>
 </div>

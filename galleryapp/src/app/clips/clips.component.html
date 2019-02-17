@@ -1,16 +1,48 @@
 <!-- Card que contiene cada elemento mutlimedia-->
 <h2>Clips</h2>
-<div *ngIf= "clips.length">
+<div *ngIf="!clips.length">
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">No Found Clips!</h4>
+    <p>Esta multimedia no poisee ningun clip asociado...</p>
+  </div>
 </div>
 
-<div class="row">
+
+<div *ngIf="clips.length">
+  <div class="row">
     <div *ngFor="let clip of clips" class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">{{clip.nombre}}</h5>
-            <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Nombre: </b>{{clip.nombre}}</p>
-            <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Id Usuario: </b>{{clip.usuario}}</p>
-          </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{clip.nombre}}</h5>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Nombre: </b>{{clip.nombre}}</p>
+          <p class="card-text" syle="overflow: hidden;  text-overflow: ellipsis;"><b>Id Usuario: </b>{{clip.usuario}}</p>
+
+
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
+            Play
+          </button>
+
+          <ng-template #content let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+              </div>
+            </ng-template>
+            
+            <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+            <hr>
+            <pre>{{closeResult}}</pre>
         </div>
       </div>
+    </div>
+  </div>
 </div>
