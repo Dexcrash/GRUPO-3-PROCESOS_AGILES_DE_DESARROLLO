@@ -144,7 +144,8 @@ def loginview(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            message = True
+            user = Usuario.objects.get(username=username)
+            return HttpResponse(serializers.serialize("json", [user]))
         else:
             message = False
 
