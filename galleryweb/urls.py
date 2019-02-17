@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^login$', views.loginview, name='login'),
     url('accounts', include('django.contrib.auth.urls')),  # new
     url(r'^clips$', views.clips, name='clips'),
+    url(r'^get_user_by_id$', views.get_user_by_id, name='user_by_id'),
 
 ]

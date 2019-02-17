@@ -62,6 +62,14 @@ def edit_user(request):
         return HttpResponse(serializers.serialize("json", [user_edit]))
 
 
+@csrf_exempt
+def get_user_by_id(request):
+
+    if request.method == 'GET':
+        user = Usuario.objects.get(id=request.GET["usuario_id"])
+        return HttpResponse(serializers.serialize("json", [user]))
+
+
 def media_detail(request, media_id):
     media = Multimedia.objects.get(id=media_id)
     tipo = TipoMultimedia.objects.all()
