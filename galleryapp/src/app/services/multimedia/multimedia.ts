@@ -1,4 +1,4 @@
-export class Image {
+export class Multimedia {
     id: number;
     name: string;
     description: string;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, pairs } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from './message.service';
+import { MessageService } from '../message/message.service';
 import { Router } from '@angular/router';
 import { CompileNgModuleMetadata } from '@angular/compiler';
 

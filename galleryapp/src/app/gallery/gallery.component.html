@@ -1,14 +1,14 @@
 <!-- Card que contiene cada elemento mutlimedia-->
 <br/>
 <div class="row">
-  <div *ngFor="let image of images" class="col-lg-4 col-md-4 col-xs-6 thumb">
+  <div *ngFor="let multimedia of multimedias" class="col-lg-4 col-md-4 col-xs-6 thumb">
     <div class="card mb-4 shadow-sm">
-      <img src="{{image.url}}" width="100%" height="100%" />
+      <img src="{{multimedia.url}}" width="100%" height="100%" />
       <div class="card-body">
         <h5 class="card-title">Prueba</h5>
-        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor: </b>{{image.autor}}</p>
-        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b>{{image.fecha_creacion}}</p>
-        <a href="" routerLink="/detail/{{image.id}}" class="btn btn-secondary">Detalle</a>
+        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor: </b>{{multimedia.autor}}</p>
+        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b>{{multimedia.fecha_creacion}}</p>
+        <a href="" routerLink="/detail/{{multimedia.id}}" class="btn btn-secondary">Detalle</a>
       </div>
     </div>
   </div>

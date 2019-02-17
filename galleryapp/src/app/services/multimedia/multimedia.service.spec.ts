@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
+import { MultimediaService } from './multimedia.service';
 
-import { RegisterService } from './register.service';
-
-describe('RegisterService', () => {
+describe('MultimediaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RegisterService = TestBed.get(RegisterService);
+    const service: MultimediaService = TestBed.get(MultimediaService);
     expect(service).toBeTruthy();
   });
 });

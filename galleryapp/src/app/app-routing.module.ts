@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GalleryComponent }      from './gallery/gallery.component';
-import { ImageDetailComponent }  from './image-detail/image-detail.component';
+import { MultimediaDetailComponent }  from './multimedia-detail/multimedia-detail.component';
 import { RegisterComponent }  from './register/register.component'; 
 
 
 const routes: Routes = [
-  {path: 'gallery', component: GalleryComponent},
-  {path: 'detail/:id', component: ImageDetailComponent},
+  {path: '', component: GalleryComponent},
+  {path: 'detail/:id', component: MultimediaDetailComponent},
   {path: 'register', component: RegisterComponent},
 ];
 

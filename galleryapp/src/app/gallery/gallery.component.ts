@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Image } from '../image';
-import { ImageService } from '../image.service';
-
-
-
+import { Multimedia } from '../services/multimedia/multimedia';
+import { MultimediaService } from '../services/multimedia/multimedia.service';
 
 @Component({
   selector: 'app-gallery',
@@ -12,19 +9,17 @@ import { ImageService } from '../image.service';
 })
 export class GalleryComponent implements OnInit {
 
-  images: Image[];
+  multimedias: Multimedia[];
 
-  selectedImage: Image;
-  constructor(private imageService: ImageService) { }
+  selectedImage: Multimedia;
+  constructor(private imageService: MultimediaService) { }
 
   ngOnInit() {
     this.getImages();
   }
 
   getImages(): void {
-    this.imageService.getImages()
-        .subscribe(images => this.images = images);
+    this.imageService.getMultimedias()
+        .subscribe(multimedias => this.multimedias = multimedias);
   }
-
-
 }
