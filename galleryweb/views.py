@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Multimedia, TipoMultimedia, Clip
+from .models import Multimedia, TipoMultimedia, Clip, Usuario
 from .forms import SignUpForm, MultimediaForm, ModifyUser, ClipForm
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
@@ -10,9 +10,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 
+
 @csrf_exempt
 # Create your views here.
-
 def galeria(request):
     media_list = Multimedia.objects.all()
     tipo_list = TipoMultimedia.objects.all()
@@ -22,7 +22,6 @@ def galeria(request):
                'tipo_Video': list(tipo_list)[2],
                }
     return HttpResponse(serializers.serialize("json", media_list))
-
 
 
 def media_detail(request, media_id):
@@ -58,7 +57,7 @@ def add_image(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def signup(request):
+def signup_old(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -73,7 +72,22 @@ def signup(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def media_list(request,media_id):
+def signup(request):
+    if request.method == 'POST':
+        newUsuario = Usuario(
+            username=request.POST.get('username'),
+            first_name=request.POST.get('first_name'),
+            last_name=request.POST.get('last_name'),
+            email=request.POST.get('email'),
+            password=request.POST.get('password'),
+            ciudad=request.POST.get('ciudad'),
+            pais=request.POST.get('pais'),
+            foto=request.FILES['foto'])
+        newUsuario.save()
+    return HttpResponse(serializers.serialize("json", [newUsuario]))
+
+
+def media_list(request, media_id):
         media = Multimedia.objects.get(id=media_id)
         tipo = TipoMultimedia.objects.all()
         context = {'media': media,
@@ -99,7 +113,10 @@ def loginview(request):
             return render(request, 'galeria/file_form.html', {'form': form})
 
     else:
-        form = AuthenticationForm()
+        if request.user.is_authenticated:
+            return render(request, 'galeria/galeria.html', )
+        else:
+            form = AuthenticationForm()
 
     return render(request, 'galeria/file_form.html', {'form': form})
 
@@ -115,8 +132,12 @@ def editUser(request):
             form.save()
             return HttpResponseRedirect(reverse('files:list'))
     else:
-        form = ModifyUser(instance=user)
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('files:list'))
+        else:
+            form = ModifyUser(instance=user)
     context = {
         'form': form,
     }
     return render(request, 'galeria/file_form.html', context)
+
