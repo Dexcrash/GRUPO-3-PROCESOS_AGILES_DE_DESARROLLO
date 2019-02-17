@@ -82,7 +82,7 @@ def signup(request):
             password=request.POST.get('password'),
             ciudad=request.POST.get('ciudad'),
             pais=request.POST.get('pais'),
-            foto=request.FILES['foto'])
+            foto=request.POST.get['foto'])
         newUsuario.save()
     return HttpResponse(serializers.serialize("json", [newUsuario]))
 
