@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Clip } from '../services/clip/clip';
+import { ClipService } from '../services/clip/clip.service';
 
 @Component({
   selector: 'app-clips',
@@ -7,9 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClipsComponent implements OnInit {
 
-  constructor() { }
+  @Input() clips: Clip;
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private clipService: ClipService,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.getMultimedia();
+  }
+   
+  getClips(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.clipService.getClips(id)
+      .subscribe(multimedia => this.multimedia = multimedia);
+  }
+  
+  goBack(): void {
+    this.location.back();
   }
 
 }

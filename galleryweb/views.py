@@ -28,16 +28,9 @@ def galeria(request):
 
 
 @csrf_exempt
-<<<<<<< HEAD
-def get_clips(request):
-
-    if request.method == 'GET':
-        media_id = request.GET['media_id']
-=======
 def clips(request):
     if request.method == 'GET':
         media_id = request.GET["media_id"]
->>>>>>> f51f9bc9dc5f0049d8b41d5614947ffd38423a8b
         multimedia = Multimedia.objects.get(id=media_id)
         clips_list = Clip.objects.filter(multimedia=multimedia)
         return HttpResponse(serializers.serialize("json", clips_list))
@@ -50,7 +43,7 @@ def clips(request):
             segundoInicio=json_clip['segundoInicio'],
             segundoFinal=json_clip['segundoFinal'])
         new_clip.save()
-    return HttpResponse(serializers.serialize("json", [new_clip]))
+        return HttpResponse(serializers.serialize("json", [new_clip]))
 
 
 def media_detail(request, media_id):
@@ -167,6 +160,9 @@ def loginview_old(request):
 
 
 def editUser(request):
+    """
+    Editar usuario de forma simple.
+    """
     user = request.user
     if request.method == 'POST':
         form = ModifyUser(request.POST, instance=user)
