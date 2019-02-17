@@ -2,21 +2,13 @@
 <br/>
 <div class="row">
   <div *ngFor="let multimedia of multimedias" class="col-lg-4 col-md-4 col-xs-6 thumb">
-    <div class="card mb-4 shadow-sm" *ngIf="multimedia.type=='1' || multimedia.type=='3'">
-      <div class="embed-responsive embed-responsive-4by3">
+    <div class="card mb-4 shadow-sm">
+      <div class="embed-responsive embed-responsive-4by3" *ngIf="multimedia.type=='1' || multimedia.type=='3'">
           <video class="embed-responsive-item" id="player" src={{multimedia.url}} allowfullscreen controls #media></video>
       </div>
+      <img src="{{multimedia.url}}" width="100%" height="100%" *ngIf="multimedia.type=='2'"/>
       <div class="card-body">
-        <h5 class="card-title">{{multimedia.titulo}}</h5>
-        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor: </b>{{multimedia.autor}}</p>
-        <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b>{{multimedia.fecha_creacion}}</p>
-        <a href="" routerLink="/detail/{{multimedia.id}}" class="btn btn-secondary">Detalle</a>
-      </div>
-    </div>
-    <div class="card mb-4 shadow-sm" *ngIf="multimedia.type=='2'">
-      <img src="{{multimedia.url}}" width="100%" height="100%" />
-      <div class="card-body">
-        <h5 class="card-title">{{multimedia.titulo}}</h5>
+        <h5 class="card-title">{{multimedia.name}}</h5>
         <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor: </b>{{multimedia.autor}}</p>
         <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b>{{multimedia.fecha_creacion}}</p>
         <a href="" routerLink="/detail/{{multimedia.id}}" class="btn btn-secondary">Detalle</a>
