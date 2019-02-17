@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 @csrf_exempt
@@ -71,18 +72,19 @@ def signup_old(request):
         form = SignUpForm()
     return render(request, 'galeria/file_form.html', {'form': form})
 
-
+@csrf_exempt
 def signup(request):
     if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        print(jsonUser)
         newUsuario = Usuario(
-            username=request.POST.get('username'),
-            first_name=request.POST.get('first_name'),
-            last_name=request.POST.get('last_name'),
-            email=request.POST.get('email'),
-            password=request.POST.get('password'),
-            ciudad=request.POST.get('ciudad'),
-            pais=request.POST.get('pais'),
-            foto=request.POST.get['foto'])
+            username=jsonUser['username'],
+            password = jsonUser['password'],
+            last_name=jsonUser['last_name'],
+            email=jsonUser['email'],
+            ciudad=jsonUser['ciudad'],
+            pais=jsonUser['pais'],
+            foto=jsonUser['foto'])
         newUsuario.save()
     return HttpResponse(serializers.serialize("json", [newUsuario]))
 
