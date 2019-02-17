@@ -1,0 +1,3 @@
+[submodule "galleryapp"]
+	path = galleryapp
+	url = https://github.com/Dexcrash/GRUPO-3-PROCESOS_AGILES_DE_DESARROLLO.git

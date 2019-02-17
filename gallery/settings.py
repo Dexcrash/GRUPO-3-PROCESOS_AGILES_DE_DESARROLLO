@@ -27,11 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'localhost', 'agiles-web.herokuapp.com']
 
+CORS_ORIGIN_ALLOW_ALL = True
+APPEND_SLASH=False
 
 # Application definition
 
 INSTALLED_APPS = [
-
+    'corsheaders',
     'galleryweb',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-
 ]
 AUTH_USER_MODEL = "galleryweb.Usuario"
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'gallery.urls'

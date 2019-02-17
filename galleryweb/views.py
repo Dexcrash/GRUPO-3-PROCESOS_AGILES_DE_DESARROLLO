@@ -1,16 +1,21 @@
+import json
+
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import Multimedia, TipoMultimedia, Clip
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from .models import Multimedia, TipoMultimedia, Clip, Usuario
 from .forms import SignUpForm, MultimediaForm, ModifyUser, ClipForm
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
+@csrf_exempt
 # Create your views here.
-
 def galeria(request):
     media_list = Multimedia.objects.all()
     tipo_list = TipoMultimedia.objects.all()
@@ -19,7 +24,17 @@ def galeria(request):
                'tipo_Imagen': list(tipo_list)[1],
                'tipo_Video': list(tipo_list)[2],
                }
-    return render(request, 'galeria/galeria.html', context)
+    return HttpResponse(serializers.serialize("json", media_list))
+
+
+@csrf_exempt
+def get_clips(request):
+    json_clips = json.loads(request.body)
+    media_id = json_clips["media_id"]
+    if request.method == 'GET':
+        multimedia = Multimedia.objects.get(id=media_id)
+        clips_list = Clip.objects.filter(multimedia=multimedia)
+    return HttpResponse(serializers.serialize("json", clips_list))
 
 
 def media_detail(request, media_id):
@@ -55,7 +70,7 @@ def add_image(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def signup(request):
+def signup_old(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -70,7 +85,23 @@ def signup(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def media_list(request,media_id):
+@csrf_exempt
+def signup(request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        newUsuario = Usuario(
+            username=jsonUser['username'],
+            password=jsonUser['password'],
+            last_name=jsonUser['last_name'],
+            email=jsonUser['email'],
+            ciudad=jsonUser['ciudad'],
+            pais=jsonUser['pais'],
+            foto=jsonUser['foto'])
+        newUsuario.save()
+    return HttpResponse(serializers.serialize("json", [newUsuario]))
+
+
+def media_list(request, media_id):
         media = Multimedia.objects.get(id=media_id)
         tipo = TipoMultimedia.objects.all()
         context = {'media': media,
@@ -81,6 +112,21 @@ def media_list(request,media_id):
 
 
 def loginview(request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        username = jsonUser['username']
+        password = jsonUser['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            message = True
+        else:
+            message = False
+
+    return HttpResponse(serializers.serialize("json", [message]))
+
+
+def loginview_old(request):
     if request.method == 'POST':
         form = AuthenticationForm(request.POST)
         username = request.POST['username']
@@ -96,7 +142,10 @@ def loginview(request):
             return render(request, 'galeria/file_form.html', {'form': form})
 
     else:
-        form = AuthenticationForm()
+        if request.user.is_authenticated:
+            return render(request, 'galeria/galeria.html', )
+        else:
+            form = AuthenticationForm()
 
     return render(request, 'galeria/file_form.html', {'form': form})
 
@@ -112,8 +161,12 @@ def editUser(request):
             form.save()
             return HttpResponseRedirect(reverse('files:list'))
     else:
-        form = ModifyUser(instance=user)
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('files:list'))
+        else:
+            form = ModifyUser(instance=user)
     context = {
         'form': form,
     }
     return render(request, 'galeria/file_form.html', context)
+

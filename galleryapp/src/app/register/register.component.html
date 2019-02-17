@@ -1,0 +1,33 @@
+<h2>Registro de un usuario</h2>
+<form [formGroup]="registerForm">
+    <label>Usuario:
+      <input type="text" formControlName="username" placeholder="username" required="true" />
+    </label>
+    <br />
+    <label>Contraseña:
+      <input type="password" formControlName="password" placeholder="name" required="true" />
+    </label>
+    <br />
+    <label>Nombre:
+      <input type="text" formControlName="first_name" placeholder="nombre" required="true" />
+    </label>
+    <br />
+    <label>Apelldio:
+      <input type="text" formControlName="last_name" placeholder="apellido" required="true" />
+    </label>
+    <br />
+    <label>Email:
+      <input type="email" formControlName="email" placeholder="email" required="true" />
+    </label>
+    <label>Pais:
+      <input type="text" formControlName="pais" placeholder="pais" required="true" />
+    </label>
+    <label>Ciudad:
+      <input type="text" formControlName="ciudad" placeholder="ciudad" required="true" />
+    </label>
+    <label>Foto:
+      <input type="text" formControlName="foto" placeholder="foto" required="true" />
+    </label>
+    <br />
+    <button type="submit" (click)="register()">Submit</button>
+</form>
