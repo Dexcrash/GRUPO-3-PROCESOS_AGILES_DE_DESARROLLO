@@ -29,9 +29,9 @@ def galeria(request):
 
 @csrf_exempt
 def get_clips(request):
-    json_clips = json.loads(request.body)
-    media_id = json_clips["media_id"]
+
     if request.method == 'GET':
+        media_id = request.GET['media_id']
         multimedia = Multimedia.objects.get(id=media_id)
         clips_list = Clip.objects.filter(multimedia=multimedia)
     return HttpResponse(serializers.serialize("json", clips_list))

@@ -12,7 +12,8 @@ export class MultimediaService {
   API_URL = 'http://localhost:8000';
   private multimedias: Array<Multimedia> = [];
 
-  constructor(private messageService: MessageService,
+  constructor(
+    private messageService: MessageService,
     private httpClient: HttpClient
   ) { }
 

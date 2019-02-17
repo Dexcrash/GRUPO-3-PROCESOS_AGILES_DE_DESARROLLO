@@ -9,6 +9,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { MultimediaDetailComponent } from './multimedia-detail/multimedia-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RegisterComponent } from './register/register.component';
+import { ClipsComponent } from './clips/clips.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
     MultimediaDetailComponent,
     MessagesComponent,
     RegisterComponent,
+    ClipsComponent,
     
   ],
   imports: [
