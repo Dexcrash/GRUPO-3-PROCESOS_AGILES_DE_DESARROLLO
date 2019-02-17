@@ -4,7 +4,7 @@
   <div *ngFor="let multimedia of multimedias" class="col-lg-4 col-md-4 col-xs-6 thumb">
     <div class="card mb-4 shadow-sm" *ngIf="multimedia.type=='1' || multimedia.type=='3'">
       <div class="embed-responsive embed-responsive-4by3">
-          <iframe class="e2e-iframe-trusted-src embed-responsive-item" [src]="multimedia.url"></iframe>
+          <video class="embed-responsive-item" id="player" src={{multimedia.url}} allowfullscreen controls #media></video>
       </div>
       <div class="card-body">
         <h5 class="card-title">{{multimedia.titulo}}</h5>
