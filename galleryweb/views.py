@@ -46,6 +46,22 @@ def clips(request):
         return HttpResponse(serializers.serialize("json", [new_clip]))
 
 
+@csrf_exempt
+def edit_user(request):
+
+    if request.method == 'POST':
+        json_usuario = json.loads(request.body)
+        user_edit = Usuario.objects.get(id=json_usuario['usuario_id'])
+        user_edit.first_name = json_usuario['first_name']
+        user_edit.last_name = json_usuario['last_name']
+        user_edit.email = json_usuario['email']
+        user_edit.ciudad = json_usuario['ciudad']
+        user_edit.pais = json_usuario['pais']
+        user_edit.foto = json_usuario['foto']
+        user_edit.save()
+        return HttpResponse(serializers.serialize("json", [user_edit]))
+
+
 def media_detail(request, media_id):
     media = Multimedia.objects.get(id=media_id)
     tipo = TipoMultimedia.objects.all()
@@ -159,7 +175,7 @@ def loginview_old(request):
     return render(request, 'galeria/file_form.html', {'form': form})
 
 
-def editUser(request):
+def editUser_old(request):
     """
     Editar usuario de forma simple.
     """
