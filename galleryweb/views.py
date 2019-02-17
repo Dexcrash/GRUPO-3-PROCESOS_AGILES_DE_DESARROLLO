@@ -1,5 +1,7 @@
+import json
+
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Multimedia, TipoMultimedia, Clip, Usuario
 from .forms import SignUpForm, MultimediaForm, ModifyUser, ClipForm
 from django.urls import reverse
@@ -98,8 +100,22 @@ def media_list(request, media_id):
                    'tipo_Video': list(tipo)[2]}
         return render(request, 'galeria/mediaList.html', context)
 
-
 def loginview(request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        username = jsonUser['username']
+        password = jsonUser['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            message = True
+        else:
+            message = False
+
+    return HttpResponse(serializers.serialize("json", [message]))
+
+
+def loginview_old(request):
     if request.method == 'POST':
         form = AuthenticationForm(request.POST)
         username = request.POST['username']
