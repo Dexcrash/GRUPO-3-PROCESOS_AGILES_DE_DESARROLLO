@@ -12,7 +12,7 @@ import { ClipService } from '../services/clip/clip.service';
 })
 export class ClipsComponent implements OnInit {
 
-  @Input() clips: Clip;
+  clips: Clip[];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,13 +21,14 @@ export class ClipsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getMultimedia();
+    this.getClips();
+    console.log("CLIPS:",this.clips)
   }
    
   getClips(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.clipService.getClips(id)
-      .subscribe(multimedia => this.multimedia = multimedia);
+      .subscribe(clips => this.clips = clips);
   }
   
   goBack(): void {

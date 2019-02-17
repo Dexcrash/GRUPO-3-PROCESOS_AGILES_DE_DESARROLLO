@@ -4,18 +4,13 @@ import { MessageService } from '../message/message.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Clip } from './clip';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class ClipService {
 
-  API_URL = 'http://localhost:8000/get_clips';
+  API_URL = 'http://localhost:8000/clips';
   private clips: Array<Clip> = [];
 
   constructor(
@@ -27,19 +22,14 @@ export class ClipService {
 
   getClips(media_id: number): Observable<Clip[]> {
     this.messageService.add('ClipService: fetched clips');
-    this.clips = [];
-    var obj = { media_id : media_id}
+    let params = new HttpParams();
+    params = params.append('media_id', media_id.toString());
 
-    this.httpClient.get(this.API_URL, httpOptions).subscribe((data: Array<any>) => {
+    this.httpClient.get(this.API_URL, {params}).subscribe((data: Array<any>) => {
       data.forEach(dataItem => {
-        let cl = new Clip();
-        cl.id = dataItem.pk;
-        cl.nombre = dataItem.fields.titulo;
-        cl.usuario_id = dataItem.fields.usuario;
-        cl.multimedia_id = dataItem.fields.multimedia_id;
-        cl.segundo_inicio = dataItem.fields.segundo_inicio;
-        cl.segundo_fin = dataItem.fields.segundo_fin;
-        this.clips.push(cl)
+        var p = JSON.stringify(dataItem.fields)
+        let clp = JSON.parse(p);
+        this.clips.push(clp)
       });
     });
     return of(this.clips);
