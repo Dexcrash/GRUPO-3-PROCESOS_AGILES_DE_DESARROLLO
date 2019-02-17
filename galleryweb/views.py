@@ -27,6 +27,16 @@ def galeria(request):
     return HttpResponse(serializers.serialize("json", media_list))
 
 
+@csrf_exempt
+def get_clips(request):
+    json_clips = json.loads(request.body)
+    media_id = json_clips["media_id"]
+    if request.method == 'GET':
+        multimedia = Multimedia.objects.get(id=media_id)
+        clips_list = Clip.objects.filter(multimedia=multimedia)
+    return HttpResponse(serializers.serialize("json", clips_list))
+
+
 def media_detail(request, media_id):
     media = Multimedia.objects.get(id=media_id)
     tipo = TipoMultimedia.objects.all()
@@ -74,6 +84,7 @@ def signup_old(request):
         form = SignUpForm()
     return render(request, 'galeria/file_form.html', {'form': form})
 
+
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
@@ -98,6 +109,7 @@ def media_list(request, media_id):
                    'tipo_Imagen': list(tipo)[1],
                    'tipo_Video': list(tipo)[2]}
         return render(request, 'galeria/mediaList.html', context)
+
 
 def loginview(request):
     if request.method == 'POST':

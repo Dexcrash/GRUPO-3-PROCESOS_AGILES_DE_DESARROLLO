@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^detalle(?P<media_id>\d+)/$', views.media_detail, name='media_detail'),
     url(r'^login$', views.loginview, name='login'),
     url('accounts', include('django.contrib.auth.urls')),  # new
+    url(r'^get_clips$', views.get_clips, name='get_clips'),
+
 ]
