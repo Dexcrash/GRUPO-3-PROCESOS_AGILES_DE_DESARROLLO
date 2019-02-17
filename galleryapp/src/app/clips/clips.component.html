@@ -1,0 +1,16 @@
+<!-- Card que contiene cada elemento mutlimedia-->
+<h2>Clips</h2>
+<div *ngIf= "clips.length">
+</div>
+
+<div class="row">
+    <div *ngFor="let clip of clips" class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{clip.nombre}}</h5>
+            <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Nombre: </b>{{clip.nombre}}</p>
+            <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Id Usuario: </b>{{clip.usuario}}</p>
+          </div>
+        </div>
+      </div>
+</div>

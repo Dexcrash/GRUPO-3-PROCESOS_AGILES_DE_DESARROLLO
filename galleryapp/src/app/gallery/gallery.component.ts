@@ -10,8 +10,8 @@ import { MultimediaService } from '../services/multimedia/multimedia.service';
 export class GalleryComponent implements OnInit {
 
   multimedias: Multimedia[];
-
   selectedImage: Multimedia;
+
   constructor(private imageService: MultimediaService) { }
 
   ngOnInit() {

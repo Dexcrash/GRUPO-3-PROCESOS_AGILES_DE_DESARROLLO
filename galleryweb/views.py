@@ -160,6 +160,9 @@ def loginview_old(request):
 
 
 def editUser(request):
+    """
+    Editar usuario de forma simple.
+    """
     user = request.user
     if request.method == 'POST':
         form = ModifyUser(request.POST, instance=user)
