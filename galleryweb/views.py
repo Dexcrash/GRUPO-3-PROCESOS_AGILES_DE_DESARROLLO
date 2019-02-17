@@ -38,8 +38,8 @@ def clips(request):
         json_clip = json.loads(request.body)
         new_clip = Clip(
             nombre=json_clip['nombre'],
-            usuario=json_clip['usuario'],
-            multimedia=json_clip['multimedia'],
+            usuario=Usuario.objects.get(id=json_clip['usuario']),
+            multimedia=Multimedia.objects.get(id=json_clip['multimedia']),
             segundoInicio=json_clip['segundoInicio'],
             segundoFinal=json_clip['segundoFinal'])
         new_clip.save()
@@ -58,12 +58,12 @@ def media_detail(request, media_id):
     clipsRecomendatos = Clip.objects.filter(multimedia=media)
     print(clipsRecomendatos)
     context = {
-                'media': media,
-                'tipo_Audio': list(tipo)[0],
-                'tipo_Imagen': list(tipo)[1],
-                'tipo_Video': list(tipo)[2],
-                'form': clipForm,
-                'clipsRecomendatos': clipsRecomendatos
+        'media': media,
+        'tipo_Audio': list(tipo)[0],
+        'tipo_Imagen': list(tipo)[1],
+        'tipo_Video': list(tipo)[2],
+        'form': clipForm,
+        'clipsRecomendatos': clipsRecomendatos
     }
     return render(request, 'galeria/mediaDetail.html', context)
 
@@ -111,13 +111,13 @@ def signup(request):
 
 
 def media_list(request, media_id):
-        media = Multimedia.objects.get(id=media_id)
-        tipo = TipoMultimedia.objects.all()
-        context = {'media': media,
-                   'tipo_Audio': list(tipo)[0],
-                   'tipo_Imagen': list(tipo)[1],
-                   'tipo_Video': list(tipo)[2]}
-        return render(request, 'galeria/mediaList.html', context)
+    media = Multimedia.objects.get(id=media_id)
+    tipo = TipoMultimedia.objects.all()
+    context = {'media': media,
+               'tipo_Audio': list(tipo)[0],
+               'tipo_Imagen': list(tipo)[1],
+               'tipo_Video': list(tipo)[2]}
+    return render(request, 'galeria/mediaList.html', context)
 
 
 def loginview(request):
@@ -178,4 +178,3 @@ def editUser(request):
         'form': form,
     }
     return render(request, 'galeria/file_form.html', context)
-
