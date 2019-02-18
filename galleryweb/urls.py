@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^clips$', views.clips, name='clips'),
     url(r'^get_user_by_id$', views.get_user_by_id, name='user_by_id'),
     url(r'^logOut', views.logOut, name='logOut'),
+    url(r'^authenticated', views.authenticate, name='autho'),
 ]

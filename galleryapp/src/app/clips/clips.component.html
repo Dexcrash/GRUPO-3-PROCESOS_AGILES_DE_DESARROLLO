@@ -1,5 +1,5 @@
 <!-- Card que contiene cada elemento mutlimedia-->
-<h2>Clips</h2>
+<h2>Clips Recomendados</h2>
 <div *ngIf="!clips.length">
   <div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">No Found Clips!</h4>
@@ -10,14 +10,54 @@
 
 <div *ngIf="clips.length">
   <div class="row">
-    <div *ngFor="let clip of clips" class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
+    <div *ngFor="let clip of clips" class="col-lg-12 col-md-12 col-xs-12 thumb rounded mx-auto d-block">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
           <h5 class="card-title">{{clip.nombre}}</h5>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Nombre: </b>{{clip.nombre}}</p>
-          <p class="card-text" syle="overflow: hidden;  text-overflow: ellipsis;"><b>Id Usuario: </b>{{clip.usuario}}</p>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left">
+                <b>Segundo inicial: </b>{{clip.segundoInicio}}</p>
+              <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left">
+                <b>Segundo final: </b>{{clip.segundoFinal}}</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <button class="btn btn-secondary" (click)="playClip(clip.segundoInicio, clip.segundoFinal)"><i
+                class="fas fa-play"></i></button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div>
+  <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="card mb-12 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Agregar un clip</h5>
+        <form [formGroup]="addClipForm">
+          <div class="form-group">
+            <label style="text-align:left"><b>Nombre:</b></label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" required="true"/>
+          </div>
+          <div class="form-group">
+            <label style="text-align:left"><b>Segundo Inicial:</b></label>
+            <input type="number" class="form-control" formControlName="segIni" placeholder="Segundo inicial"
+                   required="true"/>
+          </div>
+          <div class="form-group">
+            <label style="text-align:left"><b>Segundo Final: </b></label>
+            <input type="number" class="form-control" formControlName="segFin" placeholder="Segundo final"
+                   required="true"/>
+          </div>
+          <br/>
+          <button class="btn btn-secondary" type="submit" (click)="addClip()">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>

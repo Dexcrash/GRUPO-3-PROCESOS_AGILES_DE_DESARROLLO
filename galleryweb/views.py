@@ -35,6 +35,8 @@ def clips(request):
         return HttpResponse(serializers.serialize("json", clips_list))
     if request.method == 'POST':
         json_clip = json.loads(request.body)
+        print("----------------------")
+        print(json_clip['usuario'])
         new_clip = Clip(
             nombre=json_clip['nombre'],
             usuario=Usuario.objects.get(id=json_clip['usuario']),
@@ -162,6 +164,17 @@ def loginview(request):
         mess = {}
         mess['logIn'] = False
         return HttpResponse(json.dumps(mess), content_type="application/json")
+
+@csrf_exempt
+def authenticate(request):
+    au = request.user.is_authenticated
+    id = request.user.id
+    mess = {}
+    mess["autho"] = au;
+    mess["id"] = id;
+    return HttpResponse(json.dumps(mess), content_type="application/json")
+
+
 
 def loginview_old(request):
     if request.method == 'POST':

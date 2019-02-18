@@ -44,9 +44,9 @@ export class AuthService {
     this.messageService.add('RegisterService: Login call');
     var id = -1;
     this.httpClient.get(this.API_URL + "authenticated").subscribe((data: Response) => {
-      if (data[0].fields.autho != null) {
-        id = data[0].fields.id 
-      }
+      console.log(data)
+      id = data["id"];
+      
     });
     return id;
   }

@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b8cc2a6-3725-481e-ac00-7c4f537b55e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/message/message.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/message/message.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/galleryweb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/galleryweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/views.py" afterDir="false" />
     </list>
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/galleryweb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+            <state relative-caret-position="154">
+              <caret line="134" column="27" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/galleryweb/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -140,12 +140,12 @@
         <option value="$PROJECT_DIR$/gallery/urls.py" />
         <option value="$PROJECT_DIR$/galleryweb/models.py" />
         <option value="$PROJECT_DIR$/gallery/settings.py" />
-        <option value="$PROJECT_DIR$/galleryweb/views.py" />
         <option value="$PROJECT_DIR$/galleryweb/urls.py" />
+        <option value="$PROJECT_DIR$/galleryweb/views.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -216,9 +216,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.258547" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12750264" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -229,7 +230,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49894625" visible="true" weight="0.26477024" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49894625" visible="true" weight="0.5048754" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50105375" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -360,8 +361,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/galleryweb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -370,8 +371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/galleryweb/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+        <state relative-caret-position="154">
+          <caret line="134" column="27" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
         </state>
       </provider>
     </entry>
