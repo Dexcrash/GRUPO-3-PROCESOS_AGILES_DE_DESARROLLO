@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class EditService {
 
-  API_URL = 'http://proyecto-agiles-grupo-no3.herokuapp.com/api/signup';
+  API_URL = 'https://proyecto-agiles-grupo-no3.herokuapp.com/api/signup';
 
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,
