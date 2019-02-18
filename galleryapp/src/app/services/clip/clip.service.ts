@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from '../message/message.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Clip } from './clip';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +20,8 @@ export class ClipService {
 
   constructor(
     private messageService: MessageService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
   ) { }
 
   getClips(media_id: number): Observable<Clip[]> {
@@ -59,6 +61,7 @@ export class ClipService {
         this.messageService.authenticate(false);
       }
     });
+    this.router.navigate(['/']);
     return of(obj);
   }
 

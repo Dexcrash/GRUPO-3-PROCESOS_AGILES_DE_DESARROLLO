@@ -52,10 +52,15 @@ export class ClipsComponent implements OnInit {
   addClip(){
     var result =
       this.clipService.addClip(
-      this.auth.isAuthenticated(),
+      1,
       this.multi.getIdMulti(),
       this.addClipForm.get('name').value,
       this.addClipForm.get('segIni').value,
       this.addClipForm.get('segFin').value);
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

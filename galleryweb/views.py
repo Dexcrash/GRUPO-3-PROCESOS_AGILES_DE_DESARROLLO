@@ -42,7 +42,7 @@ def clips(request):
             usuario=Usuario.objects.get(id=json_clip['usuario']),
             multimedia=Multimedia.objects.get(id=json_clip['multimedia']),
             segundoInicio=json_clip['segundoInicio'],
-            segundoFinal=json_clip['segundoFinal'])
+            segundoFinal=json_clip['segundoFin'])
         new_clip.save()
         return HttpResponse(serializers.serialize("json", [new_clip]))
 
