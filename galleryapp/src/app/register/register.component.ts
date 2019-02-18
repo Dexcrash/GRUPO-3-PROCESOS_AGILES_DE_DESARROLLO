@@ -12,7 +12,7 @@ import { RegisterService } from '../services/register/register.service';
 })
 export class RegisterComponent implements OnInit {
 
-  private registerForm: FormGroup;
+  public registerForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     private registerService: RegisterService,

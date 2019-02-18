@@ -12,7 +12,7 @@ import { EditService } from '../services/edit/edit.service';
 })
 export class EditComponent implements OnInit {
 
-  private editForm: FormGroup;
+  public editForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     private editService: EditService,

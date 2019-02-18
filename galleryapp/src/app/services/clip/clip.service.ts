@@ -15,7 +15,7 @@ const httpOptions = {
 
 export class ClipService {
 
-  API_URL = 'http://localhost:8000/clips';
+  API_URL = 'http://localhost:8000/api/clips';
   private clips: Array<Clip> = [];
 
   constructor(

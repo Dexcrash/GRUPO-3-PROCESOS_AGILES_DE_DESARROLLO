@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  API_URL = 'http://localhost:8000/';
+  API_URL = 'http://localhost:8000/api/';
 
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,

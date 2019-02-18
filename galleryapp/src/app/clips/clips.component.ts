@@ -17,7 +17,7 @@ export class ClipsComponent implements OnInit {
 
   clips: Clip[];
   closeResult: string;
-  private addClipForm: FormGroup;
+  public addClipForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,

@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class EditService {
 
-  API_URL = 'http://localhost:8000/signup';
+  API_URL = 'http://localhost:8000/api/signup';
 
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,

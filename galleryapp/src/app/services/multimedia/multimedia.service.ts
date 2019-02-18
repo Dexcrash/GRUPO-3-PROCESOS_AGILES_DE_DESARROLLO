@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MultimediaService {
-  API_URL = 'http://localhost:8000';
+  API_URL = 'http://localhost:8000/api/';
   private multimedias: Array<Multimedia> = [];
 
   constructor(
@@ -20,7 +20,7 @@ export class MultimediaService {
   getMultimedias(): Observable<Multimedia[]> {
     this.messageService.add('MultimediaService: fetched images');
     this.multimedias = [];
-    this.httpClient.get(`${this.API_URL}/`).subscribe((data: Array<any>) => {
+    this.httpClient.get(this.API_URL).subscribe((data: Array<any>) => {
       data.forEach(dataItem => {
         let mu = new Multimedia();
         mu.id = dataItem.pk;
