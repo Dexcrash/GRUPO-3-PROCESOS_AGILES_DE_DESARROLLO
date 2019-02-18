@@ -1,11 +1,10 @@
 import json
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Multimedia, TipoMultimedia, Clip, Usuario
 from .forms import SignUpForm, MultimediaForm, ModifyUser, ClipForm
 from django.urls import reverse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -131,8 +130,15 @@ def signup(request):
             pais=jsonUser['pais'],
             foto=jsonUser['foto'])
         newUsuario.save()
+        login(request, newUsuario)
     return HttpResponse(serializers.serialize("json", [newUsuario]))
 
+@csrf_exempt
+def logOut(request):
+    logout(request)
+    mess = {}
+    mess['logOut'] = True
+    return HttpResponse(json.dumps(mess), content_type="application/json")
 
 def media_list(request, media_id):
     media = Multimedia.objects.get(id=media_id)
@@ -143,22 +149,19 @@ def media_list(request, media_id):
                'tipo_Video': list(tipo)[2]}
     return render(request, 'galeria/mediaList.html', context)
 
-
+@csrf_exempt
 def loginview(request):
-    if request.method == 'POST':
-        jsonUser = json.loads(request.body)
-        username = jsonUser['username']
-        password = jsonUser['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            user = Usuario.objects.get(username=username)
-            return HttpResponse(serializers.serialize("json", [user]))
-        else:
-            message = False
-
-    return HttpResponse(serializers.serialize("json", [message]))
-
+    jsonUser = json.loads(request.body)
+    username = jsonUser['username']
+    password = jsonUser['password']
+    try:
+        user = Usuario.objects.get(username=username, password=password)
+        login(request, user)
+        return HttpResponse(serializers.serialize("json", [user]))
+    except:
+        mess = {}
+        mess['logIn'] = False
+        return HttpResponse(json.dumps(mess), content_type="application/json")
 
 def loginview_old(request):
     if request.method == 'POST':

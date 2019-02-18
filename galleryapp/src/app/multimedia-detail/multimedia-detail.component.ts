@@ -37,5 +37,5 @@ export class MultimediaDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
- 
+
 }

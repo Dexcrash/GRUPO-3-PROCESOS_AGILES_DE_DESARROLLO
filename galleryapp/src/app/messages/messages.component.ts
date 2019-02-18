@@ -9,7 +9,12 @@ import { MessageService } from '../services/message/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) {}
+
+  auth : Boolean;
+
+  constructor(public messageService: MessageService) {
+    this.auth = false;
+  }
 
   ngOnInit() {
   }

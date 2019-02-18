@@ -44,5 +44,6 @@ export class RegisterComponent implements OnInit {
       this.registerForm.get('pais').value,
       this.registerForm.get('ciudad').value,
       this.registerForm.get('foto').value);
-  }
+  } 
+
 }

@@ -6,11 +6,23 @@ import { Injectable } from '@angular/core';
 export class MessageService {
 
   messages: string[] = [];
-   add(message: string) {
+  
+  auth: Boolean = false;
+
+  id: number;
+
+  add(message: string) {
     this.messages.push(message);
   }
   clear() {
     this.messages = [];
   }
 
+  authenticate(bol: Boolean) {
+    this.auth = bol; 
+  }
+
+  userId(id: number) {
+    this.id = id; 
+  }
 }

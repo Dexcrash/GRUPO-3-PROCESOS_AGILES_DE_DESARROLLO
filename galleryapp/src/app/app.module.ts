@@ -10,6 +10,8 @@ import { MultimediaDetailComponent } from './multimedia-detail/multimedia-detail
 import { MessagesComponent } from './messages/messages.component';
 import { RegisterComponent } from './register/register.component';
 import { ClipsComponent } from './clips/clips.component';
+import { EditComponent } from './edit/edit.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ClipsComponent } from './clips/clips.component';
     MessagesComponent,
     RegisterComponent,
     ClipsComponent,
+    EditComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
