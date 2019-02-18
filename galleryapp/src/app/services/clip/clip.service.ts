@@ -15,7 +15,7 @@ const httpOptions = {
 
 export class ClipService {
 
-  API_URL = 'http://localhost:8000/api/clips';
+  API_URL = 'http://proyecto-agiles-grupo-no3.herokuapp.com/api/clips';
   private clips: Array<Clip> = [];
 
   constructor(

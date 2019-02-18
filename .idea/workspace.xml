@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b8cc2a6-3725-481e-ac00-7c4f537b55e8" name="Default Changelist" comment="Agregar el archivo workspace a los omitidos">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            <state relative-caret-position="187">
+              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -24,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -45,15 +49,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.ts">
           <provider selected="true" editor-type-id="text-editor" />
@@ -63,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -84,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -105,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -150,7 +145,6 @@
         <option value="$PROJECT_DIR$/galleryweb/views.py" />
         <option value="$PROJECT_DIR$/galleryapp/src/app/gallery/gallery.component.html" />
         <option value="$PROJECT_DIR$/galleryapp/src/index.html" />
-        <option value="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" />
         <option value="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.html" />
         <option value="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html" />
         <option value="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.ts" />
@@ -158,6 +152,11 @@
         <option value="$PROJECT_DIR$/galleryapp/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/galleryapp/src/app/navbar/navbar.component.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" />
+        <option value="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" />
+        <option value="$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts" />
+        <option value="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts" />
       </list>
     </option>
   </component>
@@ -336,13 +335,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216000" />
+    <option name="totallyTimeSpent" value="492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,7 +353,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50105375" side_tool="true" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49894625" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49894625" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -591,16 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/galleryapp/src/app/register/register.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="545">
@@ -612,13 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -674,6 +656,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/message/message.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
