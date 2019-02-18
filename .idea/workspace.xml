@@ -2,92 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b8cc2a6-3725-481e-ac00-7c4f537b55e8" name="Default Changelist" comment="Agregar el archivo workspace a los omitidos">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/e2e/tsconfig.e2e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/clips/clips.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/edit/edit.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/edit/edit.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/edit/edit.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/edit/edit.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/gallery/gallery.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/gallery/gallery.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/gallery/gallery.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/gallery/gallery.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/messages/messages.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/multimedia-detail/multimedia-detail.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/navbar/navbar.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/navbar/navbar.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/navbar/navbar.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/register/register.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/auth/auth.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/clip/clip.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/edit/edit.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/message/message.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/message/message.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/multimedia/multimedia.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/app/services/register/register.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/src/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryapp/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/galleryweb/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryweb/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryweb/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryweb/templates/galeria/mediaDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/templates/galeria/mediaDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryweb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galleryweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/galleryweb/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="204">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -422,13 +336,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34000" />
+    <option name="totallyTimeSpent" value="216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -440,7 +354,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50105375" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49894625" visible="true" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49894625" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -758,8 +672,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="204">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
