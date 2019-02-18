@@ -41,5 +41,12 @@ export class ClipService {
     return of(this.clips.find(clip => clip.id === id));  
   }
 
+  clearClip(){
+    this.clips = [];
+  }
+
+  addClip(){
+
+  }
 
 }

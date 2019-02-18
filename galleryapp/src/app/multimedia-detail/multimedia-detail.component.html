@@ -5,23 +5,35 @@
       <div class="card mb-4 shadow-sm">
         <img src="{{multimedia.url}}" width="100%" height="100%" *ngIf="multimedia.type=='2'"/>
         <div class="embed-responsive embed-responsive-4by3" *ngIf="multimedia.type=='1' || multimedia.type=='3'">
-          <video class="embed-responsive-item" id="player" src={{multimedia.url}} allowfullscreen controls #media></video>
+          <video class="embed-responsive-item" id="player" src={{multimedia.url}} allowfullscreen controls #media
+                 preload="metadata"></video>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{multimedia.name}}</h5>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Autor: </b>{{multimedia.autor}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Fecha: </b>{{multimedia.fecha_creacion}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>País: </b>{{multimedia.pais}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Ciudad: </b>{{multimedia.ciudad}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Creado por: </b>{{multimedia.autor}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Tipo: </b>{{multimedia.type}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Categoria: </b>{{multimedia.type}}</p>
-          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis;"><b>Descrpción: </b>{{multimedia.description}}</p>          
-          <div *ngIf="multimedia.type == 3 || multimedia.type == 1">
-            <app-clips></app-clips>
-          </div>
+          <button class="btn btn-secondary" (click)="playOriginal()">Reproducir original</button>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Autor: </b>{{multimedia.autor}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Fecha: </b>{{multimedia.fecha_creacion}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>País: </b>{{multimedia.pais}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Ciudad: </b>{{multimedia.ciudad}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Creado por: </b>{{multimedia.autor}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Tipo: </b>{{multimedia.type}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Categoria: </b>{{multimedia.type}}
+          </p>
+          <p class="card-text" style="overflow: hidden;  text-overflow: ellipsis; text-align: left"><b>Descripción: </b>{{multimedia.description}}
+          </p>
           <button class="btn btn-secondary" (click)="goBack()">Volver</button>
         </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6 thumb rounded mx-auto d-block">
+      <div *ngIf="multimedia.type == 3 || multimedia.type == 1">
+        <app-clips></app-clips>
       </div>
     </div>
   </div>

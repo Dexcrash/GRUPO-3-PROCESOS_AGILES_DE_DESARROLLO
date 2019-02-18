@@ -15,7 +15,6 @@ import { MultimediaService }  from '../services/multimedia/multimedia.service';
 })
 export class MultimediaDetailComponent implements OnInit {
 
-
   @Input() multimedia: Multimedia;
 
   constructor(
@@ -24,10 +23,15 @@ export class MultimediaDetailComponent implements OnInit {
     private location: Location
   ) {}
 
+
   ngOnInit(): void {
     this.getMultimedia();
+    this.urlOriginal = this.multimedia.url;
   }
-   
+
+  urlMultimedia: String;
+  urlOriginal: String;
+
   getMultimedia(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.multimediaService.getMultimedia(id)
@@ -36,6 +40,15 @@ export class MultimediaDetailComponent implements OnInit {
   
   goBack(): void {
     this.location.back();
+  }
+
+  playOriginal(){
+    this.multimedia.url = this.urlOriginal
+  }
+
+  playClipM(seg_init:String, seg_fin:String){
+    this.urlMultimedia = this.urlOriginal+"#t="+seg_init+","+seg_fin;
+    this.multimedia.url = this.urlMultimedia
   }
  
 }
