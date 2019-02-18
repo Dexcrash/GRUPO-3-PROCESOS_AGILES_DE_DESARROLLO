@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from .models import Usuario, Multimedia
+from .models import Usuario, Multimedia, Clip
 from django.forms import ModelForm
 from django.db import models
 from django import forms
@@ -31,3 +31,9 @@ class ModifyUser(UserChangeForm):
     class Meta:
         model = Usuario
         fields = ('first_name', 'last_name', 'email', 'ciudad', 'pais', 'foto')
+
+class ClipForm(ModelForm):
+    class Meta:
+        model = Clip
+        fields = ['multimedia', 'nombre', 'usuario', 'segundoInicio', 'segundoFinal']
+        widgets = {'multimedia': forms.HiddenInput(), 'usuario': forms.HiddenInput() }

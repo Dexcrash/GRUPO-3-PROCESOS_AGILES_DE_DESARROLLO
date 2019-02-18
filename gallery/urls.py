@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include(('galleryweb.urls', 'galleryweb'), namespace="files")),
-    path('home', include(('galleryweb.urls', 'galleryweb'), namespace="files")),
+    url(r'^api/', include(('galleryweb.urls', 'galleryweb'), namespace="files")),
+    url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
 ]

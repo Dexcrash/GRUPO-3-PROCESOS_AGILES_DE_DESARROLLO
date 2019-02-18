@@ -52,6 +52,8 @@ class Clip(models.Model):
     nombre = models.CharField(max_length=200)
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+')
     multimedia = models.ForeignKey(Multimedia, on_delete=models.CASCADE)
+    segundoInicio = models.IntegerField(null=False)
+    segundoFinal = models.IntegerField(null=False)
 
     def __str__(self):
         return 'Clip: ' + self.nombre
