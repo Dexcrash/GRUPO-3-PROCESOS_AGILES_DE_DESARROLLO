@@ -15,6 +15,16 @@ import json
 
 @csrf_exempt
 # Create your views here.
+def multimedias_by_user(request):
+    if request.method == 'GET':
+        user_id = request.GET["user_id"]
+        user = Usuario.objects.get(id=user_id)
+        multimedia_list = Multimedia.objects.filter(usuario=user)
+        return HttpResponse(serializers.serialize("json", multimedia_list))
+
+
+@csrf_exempt
+# Create your views here.
 def galeria(request):
     media_list = Multimedia.objects.all()
     tipo_list = TipoMultimedia.objects.all()
@@ -135,12 +145,14 @@ def signup(request):
         login(request, newUsuario)
     return HttpResponse(serializers.serialize("json", [newUsuario]))
 
+
 @csrf_exempt
 def logOut(request):
     logout(request)
     mess = {}
     mess['logOut'] = True
     return HttpResponse(json.dumps(mess), content_type="application/json")
+
 
 def media_list(request, media_id):
     media = Multimedia.objects.get(id=media_id)
@@ -150,6 +162,7 @@ def media_list(request, media_id):
                'tipo_Imagen': list(tipo)[1],
                'tipo_Video': list(tipo)[2]}
     return render(request, 'galeria/mediaList.html', context)
+
 
 @csrf_exempt
 def loginview(request):
@@ -165,6 +178,7 @@ def loginview(request):
         mess['logIn'] = False
         return HttpResponse(json.dumps(mess), content_type="application/json")
 
+
 @csrf_exempt
 def authenticate(request):
     au = request.user.is_authenticated
@@ -173,7 +187,6 @@ def authenticate(request):
     mess["autho"] = au;
     mess["id"] = id;
     return HttpResponse(json.dumps(mess), content_type="application/json")
-
 
 
 def loginview_old(request):

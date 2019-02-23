@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^get_user_by_id$', views.get_user_by_id, name='user_by_id'),
     url(r'^logOut', views.logOut, name='logOut'),
     url(r'^authenticated', views.authenticate, name='autho'),
+    url(r'^multimedias_by_user', views.multimedias_by_user, name='multimedias'),
 ]
