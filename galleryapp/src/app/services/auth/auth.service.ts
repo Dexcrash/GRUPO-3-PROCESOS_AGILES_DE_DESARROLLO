@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  API_URL = 'http://localhost:8000/api/';
+  API_URL = 'https://proyecto-agiles-grupo-no3.herokuapp.com/api/';
 
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,

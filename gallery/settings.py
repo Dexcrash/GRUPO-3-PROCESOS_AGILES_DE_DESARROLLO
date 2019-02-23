@@ -78,6 +78,7 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+'''
 
 DATABASES = {
     'default': {
@@ -101,7 +102,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-'''
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
