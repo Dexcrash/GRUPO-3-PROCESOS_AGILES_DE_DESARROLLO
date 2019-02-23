@@ -14,7 +14,6 @@ import json
 
 
 @csrf_exempt
-# Create your views here.
 def multimedias_by_user(request):
     if request.method == 'GET':
         user_id = request.GET["user_id"]
