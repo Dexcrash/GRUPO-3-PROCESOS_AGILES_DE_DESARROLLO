@@ -14,4 +14,6 @@ urlpatterns = [
     url(r'^logOut', views.logOut, name='logOut'),
     url(r'^authenticated', views.authenticate, name='autho'),
     url(r'^multimedias_by_user', views.multimedias_by_user, name='multimedias_by_user'),
+    url(r'^categorias', views.categorias, name='categorias'),
+    url(r'^tipos', views.tipos, name='tipos'),
 ]

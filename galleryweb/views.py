@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Multimedia, Clip, Usuario, Categoria
+from .models import Multimedia, Clip, Usuario, Categoria, TipoMultimedia
 from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -28,6 +28,13 @@ def categorias(request):
     if request.method == 'GET':
         categoria_list = Categoria.objects.all()
         return HttpResponse(serializers.serialize("json", categoria_list))
+
+
+@csrf_exempt
+def tipos(request):
+    if request.method == 'GET':
+        tipo_list = TipoMultimedia.objects.all()
+        return HttpResponse(serializers.serialize("json", tipo_list))
 
 
 @csrf_exempt
