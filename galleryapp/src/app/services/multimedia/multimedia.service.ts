@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MultimediaService {
-  API_URL = 'http://localhost:8000/api';
+  API_URL = 'http://localhost:8000/';
   private multimedias: Array<Multimedia> = [];
 
   constructor(

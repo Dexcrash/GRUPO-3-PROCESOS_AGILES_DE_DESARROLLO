@@ -121,18 +121,3 @@ def authenticate(request):
     mess["id"] = id;
     return HttpResponse(json.dumps(mess), content_type="application/json")
 
-@csrf_exempt
-def index(request):
-    images_list = Image.objects.all()
-    if request.method == 'POST':
-        jsonData = json.load(request.body)
-        data = {'token': jsonData['token']}
-
-        try:
-            valid_data = VerifyJSONWebTokenSerializer().validate(data)
-        except ValidationError as e:
-            pass
-        else:
-            if valid_data['user']:
-                images_list = Image.objects.filter(user=valid_data['user'])
-                return HttpResponse(serializers.serialize("json", images_list))

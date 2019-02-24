@@ -16,13 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from django.views.generic.base import TemplateView
-from rest_frameworks_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(('galleryweb.urls', 'galleryweb'), namespace="files")),
-    url(r'^api-token-auth/', obtain_jwt_token),
-    url(r'^api-token-refresh/', refresh_jwt_token),
     # url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
 ]
