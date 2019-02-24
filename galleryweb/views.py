@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Multimedia, Clip, Usuario
+from .models import Multimedia, Clip, Usuario, Categoria
 from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -18,10 +18,16 @@ def multimedias_by_user(request):
 
 
 @csrf_exempt
-# Create your views here.
 def galeria(request):
     media_list = Multimedia.objects.all()
     return HttpResponse(serializers.serialize("json", media_list))
+
+
+@csrf_exempt
+def categorias(request):
+    if request.method == 'GET':
+        categoria_list = Categoria.objects.all()
+        return HttpResponse(serializers.serialize("json", categoria_list))
 
 
 @csrf_exempt
