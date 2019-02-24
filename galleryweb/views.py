@@ -3,7 +3,8 @@ from .models import Multimedia, Clip, Usuario
 from django.contrib.auth import login, logout
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import EmailMessage
+from django.conf import settings
+from django.core.mail import send_mail
 import json
 
 
@@ -25,17 +26,14 @@ def galeria(request):
 
 @csrf_exempt
 def clips(request):
-    print("---------AFUERA-----------")
+    # print("Prueba print")
     if request.method == 'GET':
-        print("----------GET----------")
         media_id = request.GET["media_id"]
         multimedia = Multimedia.objects.get(id=media_id)
         clips_list = Clip.objects.filter(multimedia=multimedia)
         return HttpResponse(serializers.serialize("json", clips_list))
     if request.method == 'POST':
         json_clip = json.loads(request.body)
-        print("---------POST-------")
-        print(json_clip['usuario'])
         usuario_creador = Usuario.objects.get(id=json_clip['usuario'])
         new_clip = Clip(
             nombre=json_clip['nombre'],
@@ -44,9 +42,11 @@ def clips(request):
             segundoInicio=json_clip['segundoInicio'],
             segundoFinal=json_clip['segundoFin'])
         new_clip.save()
-        email = EmailMessage('Clip agregado', 'Se ha agregado un nuevo clip', to=['n.lema@uniandes.edu.co'])
-        email.send()
-        #send_mail('<Your subject>', '<Your message>', 'n.lema@uniandes.edu.co', ['n.lema@uniandes.edu.co'])
+        subject = 'Nuevo clip agregado'
+        message = 'Se he agregado un nuevo clip con nombre: ' + json_clip['nombre']
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [usuario_creador.email, ]
+        send_mail(subject, message, email_from, recipient_list)
         return HttpResponse(serializers.serialize("json", [new_clip]))
 
 
