@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,7 @@ APPEND_SLASH=False
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'corsheaders',
     'galleryweb',
     'django.contrib.admin',
@@ -153,3 +155,19 @@ EMAIL_HOST_USER = 'RXrmvya6SOCeODgudaMvLQ'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
+}
