@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MultimediaService {
-  API_URL = 'http://localhost:8000/';
+  API_URL = 'http://localhost:8000/api/';
   private multimedias: Array<Multimedia> = [];
 
   constructor(
@@ -33,6 +33,7 @@ export class MultimediaService {
         mu.ciudad = dataItem.fields.ciudad;
         mu.pais = dataItem.fields.pais;
         mu.fecha_creacion = dataItem.fields.fecha_creacion;
+        mu.categoria = dataItem.fields.categoria;
         this.multimedias.push(mu)
       });
     });

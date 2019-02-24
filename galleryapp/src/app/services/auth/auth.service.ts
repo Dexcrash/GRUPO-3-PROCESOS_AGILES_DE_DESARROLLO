@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, pairs } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { MessageService } from '../message/message.service';
 import { Router } from '@angular/router';
 
@@ -49,6 +49,18 @@ export class AuthService {
       
     });
     return id;
+  }
+
+
+  getEmail(user_id: number) : String {
+    let params = new HttpParams();
+    let email: String[] =[];
+    params = params.append('usuario_id', user_id.toString());
+    this.httpClient.get(this.API_URL + "get_user_by_id", {params}).subscribe((data: Response) => {
+      email.push(data[0].fields.email);
+    });
+
+    return email[0];
   }
 
 }

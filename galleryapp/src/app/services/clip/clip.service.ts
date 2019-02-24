@@ -28,7 +28,7 @@ export class ClipService {
     this.messageService.add('ClipService: fetched clips');
     let params = new HttpParams();
     params = params.append('media_id', media_id.toString());
-
+    this.clips = [];
     this.httpClient.get(this.API_URL, {params}).subscribe((data: Array<any>) => {
       data.forEach(dataItem => {
         var p = JSON.stringify(dataItem.fields)
@@ -61,7 +61,6 @@ export class ClipService {
         this.messageService.authenticate(false);
       }
     });
-    this.router.navigate(['/']);
     return of(obj);
   }
 

@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { ClipsComponent } from './clips/clips.component';
 import { EditComponent } from './edit/edit.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
