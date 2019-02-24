@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class RegisterService {
 
-  API_URL = 'https://proyecto-agiles-grupo-no3.herokuapp.com/api/signup';
+  API_URL = 'http://localhost:8000/api/signup';
 
   constructor(private messageService: MessageService,
     private httpClient: HttpClient,

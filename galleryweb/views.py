@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import EmailMessage
 import json
 
 
@@ -46,13 +47,17 @@ def clips(request):
         json_clip = json.loads(request.body)
         print("----------------------")
         print(json_clip['usuario'])
+        usuario_creador = Usuario.objects.get(id=json_clip['usuario'])
         new_clip = Clip(
             nombre=json_clip['nombre'],
-            usuario=Usuario.objects.get(id=json_clip['usuario']),
+            usuario=usuario_creador,
             multimedia=Multimedia.objects.get(id=json_clip['multimedia']),
             segundoInicio=json_clip['segundoInicio'],
             segundoFinal=json_clip['segundoFin'])
         new_clip.save()
+        email = EmailMessage('Clip agregado', 'Se ha agregado un nuevo clip', to=[usuario_creador.email])
+        email.send()
+        #send_mail('<Your subject>', '<Your message>', 'n.lema@uniandes.edu.co', ['n.lema@uniandes.edu.co'])
         return HttpResponse(serializers.serialize("json", [new_clip]))
 
 

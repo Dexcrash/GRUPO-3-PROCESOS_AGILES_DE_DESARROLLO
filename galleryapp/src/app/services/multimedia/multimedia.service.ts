@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MultimediaService {
-  API_URL = 'https://proyecto-agiles-grupo-no3.herokuapp.com/api/';
+  API_URL = 'http://localhost:8000/api';
   private multimedias: Array<Multimedia> = [];
 
   constructor(

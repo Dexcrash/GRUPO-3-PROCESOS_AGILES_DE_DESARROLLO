@@ -78,7 +78,7 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-'''
+
 
 DATABASES = {
     'default': {
@@ -102,6 +102,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+'''
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -147,3 +148,8 @@ STATICFILES_DIRS = (
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'RXrmvya6SOCeODgudaMvLQ'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
